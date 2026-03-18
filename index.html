@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeNest – Global Sourcing from China, Made Simple</title>
+  <meta name="description" content="TradeNest connects businesses worldwide with trusted Chinese manufacturers. Custom sourcing, quality control, and end-to-end logistics – serving clients across USA, Europe, Australia, Middle East and beyond." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* ── Ruby Burgundy — 宝石酒红 ── */
+      --coral:        #C0392B;
+      --coral-light:  #D44232;
+      --coral-dark:   #962D22;
+      --coral-bg:     #FAEEED;
+
+      /* ── Deep Navy — 深海军蓝 ── */
+      --indigo:       #0D3B6E;
+      --indigo-mid:   #154D8A;
+      --indigo-light: #1E60A6;
+      --indigo-bg:    #EAF1FA;
+
+      /* ── Neutrals ── */
+      --sky:          #3A6EA8;
+      --mint:         #E4EEF8;
+      --sand:         #F7F8FA;
+      --grey:         #EDEEF1;
+      --text:         #14243A;
+      --muted:        #5A6878;
+      --white:        #FFFFFF;
+
+      --radius:       6px;
+      --shadow:       0 4px 20px rgba(13,59,110,.12);
+      --shadow-lg:    0 16px 48px rgba(13,59,110,.20);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section--alt { background: var(--indigo-bg); }
+    .section--dark { background: var(--indigo); color: var(--white); }
+    .tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--coral);
+      border-bottom: 2px solid var(--coral);
+      padding: 0 0 4px 0; margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800; line-height: 1.18;
+      color: var(--indigo);
+    }
+    .section-title--white { color: var(--white); }
+    .section-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 560px; margin-top: 14px;
+    }
+    .section-sub--white { color: rgba(255,255,255,.72); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 4px;
+      font-weight: 600; font-size: 14px; letter-spacing: .04em;
+      cursor: pointer; border: none; transition: all .2s ease;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      background: var(--coral); color: var(--white);
+      box-shadow: 0 4px 16px rgba(192,57,43,.30);
+    }
+    .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,.42); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.55);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+    .btn-dark {
+      background: var(--indigo); color: var(--white);
+    }
+    .btn-dark:hover { background: var(--indigo-mid); transform: translateY(-1px); }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 18px 0;
+      transition: background .3s, box-shadow .3s, padding .3s;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 800;
+      color: var(--white);
+      display: flex; align-items: center; gap: 10px;
+      transition: color .3s;
+      letter-spacing: .02em;
+    }
+    #navbar.scrolled .nav-logo { color: var(--indigo); }
+    .nav-logo-icon {
+      width: 32px; height: 32px; border-radius: 3px;
+      background: var(--coral);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .nav-links {
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,.85);
+      transition: color .2s;
+    }
+    #navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      background: var(--coral); color: var(--white) !important;
+      padding: 9px 20px; border-radius: 4px;
+      font-size: 13px !important; letter-spacing: .05em;
+      text-transform: uppercase; font-weight: 600 !important;
+      box-shadow: 0 3px 12px rgba(235,60,39,.28);
+    }
+    .nav-cta:hover { background: var(--coral-dark) !important; transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px; border-radius: 2px;
+      background: var(--white); transition: background .3s;
+    }
+    #navbar.scrolled .hamburger span { background: var(--indigo); }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--indigo); z-index: 998;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 40px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 800; color: var(--white);
+    }
+    .mobile-menu a:hover { color: var(--coral); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px;
+      font-size: 32px; color: var(--white); cursor: pointer;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0D3B6E 0%, #082649 55%, #0B3360 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 0 80px;
+    }
+    .hero-bg-blobs {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: .18;
+    }
+    .blob-1 { width: 600px; height: 600px; background: #C0392B; top: -200px; right: -150px; }
+    .blob-2 { width: 400px; height: 400px; background: #6C6BC0; bottom: -100px; left: -100px; }
+    .blob-3 { width: 300px; height: 300px; background: #A09FDB; top: 40%; left: 30%; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px; padding: 6px 16px 6px 8px;
+      font-size: 13px; color: rgba(255,255,255,.9);
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--coral); flex-shrink: 0;
+    }
+    /* Globe markets ticker */
+    .markets-ticker {
+      margin-top: 36px;
+      overflow: hidden;
+      position: relative;
+    }
+    .markets-ticker::before, .markets-ticker::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; width: 60px;
+      z-index: 2; pointer-events: none;
+    }
+    .markets-ticker::before { left: 0; background: linear-gradient(90deg, rgba(10,56,96,1), transparent); }
+    .markets-ticker::after  { right: 0; background: linear-gradient(-90deg, rgba(10,56,96,1), transparent); }
+    .ticker-track {
+      display: flex; gap: 10px;
+      animation: ticker 28s linear infinite;
+      width: max-content;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: 6px 16px; white-space: nowrap;
+      font-size: 13px; color: rgba(255,255,255,.8); font-weight: 500;
+    }
+    .ticker-item span { font-size: 17px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5.2vw, 64px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.1; margin-bottom: 22px;
+    }
+    .hero-title .highlight {
+      color: var(--coral);
+      position: relative; display: inline-block;
+    }
+    .hero-desc {
+      font-size: 18px; color: rgba(255,255,255,.72);
+      max-width: 480px; line-height: 1.7; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 800; color: var(--white);
+    }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,.5); }
+    .hero-visual {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-card-main {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 24px; padding: 32px;
+      width: 100%; max-width: 420px;
+    }
+    .hc-top {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hc-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--coral); display: flex;
+      align-items: center; justify-content: center; font-size: 22px;
+      flex-shrink: 0;
+    }
+    .hc-title { font-weight: 700; color: var(--white); font-size: 16px; }
+    .hc-sub { font-size: 13px; color: rgba(255,255,255,.5); }
+    .hc-items { display: flex; flex-direction: column; gap: 14px; }
+    .hc-item {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.05);
+      border-radius: 12px; padding: 12px 16px;
+    }
+    .hc-item-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+    }
+    .hc-item-text { font-size: 14px; color: rgba(255,255,255,.85); font-weight: 500; }
+    .hc-item-tag {
+      margin-left: auto; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .tag-green { background: rgba(45,43,127,.12); color: #5B59C4; }
+    .tag-coral { background: rgba(192,57,43,.12); color: var(--coral-light); }
+    .tag-sky   { background: rgba(74,72,176,.12); color: #7B79D4; }
+    .float-badge {
+      position: absolute;
+      background: var(--white); border-radius: 16px;
+      padding: 14px 18px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .float-badge-1 { bottom: -20px; left: -30px; }
+    .float-badge-2 { top: -20px; right: -24px; }
+    .fb-icon { font-size: 24px; }
+    .fb-text { font-size: 13px; font-weight: 700; color: var(--indigo); }
+    .fb-sub { font-size: 11px; color: var(--muted); }
+
+    /* ============================================================
+       HOW IT WORKS
+    ============================================================ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px; margin-top: 56px;
+      position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 36px; left: 10%; right: 10%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--coral) 0, var(--coral) 10px, transparent 10px, transparent 20px);
+      z-index: 0;
+    }
+    .step-card {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--indigo);
+      position: relative; z-index: 1;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .step-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 4px;
+      background: var(--indigo); color: var(--white);
+      font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 16px rgba(30,22,82,.25);
+    }
+    .step-emoji { font-size: 28px; margin-bottom: 12px; }
+    .step-title { font-weight: 700; font-size: 16px; color: var(--indigo); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+    .step-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-top: 56px;
+    }
+    .service-card {
+      border-radius: 6px;
+      padding: 36px 28px;
+      transition: transform .22s, box-shadow .22s;
+      cursor: default;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .sc-icon {
+      width: 58px; height: 58px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 22px;
+    }
+    .sc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 800;
+      color: var(--indigo); margin-bottom: 12px;
+    }
+    .sc-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
+    .sc-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .sc-list li {
+      font-size: 13px; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sc-list li::before { content: '✓'; color: var(--coral); font-weight: 800; }
+    .card-v1 { background: var(--white); box-shadow: var(--shadow); border: 1px solid #E8E8F0; border-left: 3px solid var(--coral); }
+    .card-v2 { background: var(--indigo); border-left: 3px solid var(--coral); }
+    .card-v2 .sc-title { color: var(--white); }
+    .card-v2 .sc-desc { color: rgba(255,255,255,.65); }
+    .card-v2 .sc-list li { color: rgba(255,255,255,.8); }
+    .card-v2 .sc-list li::before { color: var(--coral-light); }
+    .card-v3 { background: var(--coral); border-left: 3px solid rgba(255,255,255,.4); }
+    .card-v3 .sc-title { color: var(--white); }
+    .card-v3 .sc-desc { color: rgba(255,255,255,.75); }
+    .card-v3 .sc-list li { color: rgba(255,255,255,.85); }
+    .card-v3 .sc-list li::before { color: var(--white); }
+
+    /* ============================================================
+       WHY US
+    ============================================================ */
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; margin-top: 0;
+    }
+    .why-visual {
+      position: relative;
+    }
+    .why-main-box {
+      background: var(--indigo);
+      border-radius: 24px; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .why-main-box::after {
+      content: '🌏';
+      position: absolute; right: -10px; bottom: -10px;
+      font-size: 120px; opacity: .07;
+    }
+    .wmb-label {
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--coral);
+      margin-bottom: 8px;
+    }
+    .wmb-title {
+      font-family: 'Playfair Display', serif; font-size: 22px;
+      font-weight: 800; color: var(--white); margin-bottom: 24px;
+    }
+    .wmb-metrics { display: flex; flex-direction: column; gap: 16px; }
+    .wmb-metric {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .wmb-metric-label { font-size: 14px; color: rgba(255,255,255,.6); }
+    .wmb-bar-wrap {
+      flex: 1; margin: 0 16px;
+      height: 6px; background: rgba(255,255,255,.1);
+      border-radius: 3px; overflow: hidden;
+    }
+    .wmb-bar {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--coral-light));
+    }
+    .wmb-val { font-size: 14px; font-weight: 700; color: var(--white); }
+    .why-float-1, .why-float-2 {
+      position: absolute;
+      background: var(--white); border-radius: 16px;
+      padding: 16px 20px; box-shadow: var(--shadow-lg);
+    }
+    .why-float-1 { bottom: -28px; right: -28px; display: flex; align-items: center; gap: 12px; }
+    .why-float-2 { top: -24px; left: -24px; text-align: center; padding: 18px 22px; }
+    .wf-big { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--coral); }
+    .wf-sub { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .why-points { display: flex; flex-direction: column; gap: 28px; }
+    .why-point { display: flex; gap: 20px; align-items: flex-start; }
+    .wp-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .wp-title { font-weight: 700; font-size: 17px; color: var(--indigo); margin-bottom: 6px; }
+    .wp-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ============================================================
+       PRODUCT CATEGORIES
+    ============================================================ */
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px; margin-top: 56px;
+    }
+    .cat-card {
+      background: var(--white);
+      border: 1px solid #E4E4EE;
+      border-top: 3px solid transparent;
+      border-radius: 6px; padding: 28px 20px;
+      text-align: center; cursor: default;
+      transition: all .22s;
+    }
+    .cat-card:hover {
+      border-top-color: var(--indigo); transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(30,22,82,.12);
+    }
+    .cat-emoji { font-size: 38px; margin-bottom: 14px; }
+    .cat-name { font-weight: 700; font-size: 15px; color: var(--indigo); margin-bottom: 6px; }
+    .cat-examples { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-text .section-title { margin-bottom: 20px; }
+    .about-desc { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+    .about-values { display: flex; flex-direction: column; gap: 16px; margin: 32px 0; }
+    .av-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px; border-radius: 4px;
+      background: var(--indigo-bg);
+      border-left: 3px solid var(--indigo);
+    }
+    .av-icon { font-size: 24px; }
+    .av-title { font-weight: 700; font-size: 14px; color: var(--indigo); }
+    .av-sub { font-size: 13px; color: var(--muted); }
+    .about-visual {
+      position: relative; display: flex;
+      flex-direction: column; gap: 16px;
+    }
+    .about-card {
+      background: var(--white); border-radius: 18px;
+      padding: 24px; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 16px;
+    }
+    .ac-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+    .ac-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 800; color: var(--indigo); }
+    .ac-label { font-size: 13px; color: var(--muted); }
+    .about-big-card {
+      background: var(--indigo); border-radius: 6px;
+      padding: 32px; color: var(--white);
+    }
+    .abc-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+    .abc-desc { font-size: 14px; opacity: .85; line-height: 1.6; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testi-carousel {
+      overflow: hidden; margin-top: 56px;
+      position: relative;
+    }
+    .testi-carousel::before, .testi-carousel::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; width: 80px;
+      z-index: 2; pointer-events: none;
+    }
+    .testi-carousel::before { left: 0; background: linear-gradient(90deg, var(--indigo-bg), transparent); }
+    .testi-carousel::after  { right: 0; background: linear-gradient(-90deg, var(--indigo-bg), transparent); }
+    .testi-track {
+      display: flex; gap: 24px;
+      animation: testiScroll 48s linear infinite;
+      width: max-content;
+    }
+    .testi-track:hover { animation-play-state: paused; }
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: 6px; padding: 32px;
+      box-shadow: var(--shadow);
+      border-left: 3px solid var(--indigo);
+      width: 340px; flex-shrink: 0;
+    }
+    .testi-stars { color: #FBBF24; font-size: 16px; margin-bottom: 16px; }
+    .testi-text { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 4px;
+      background: var(--coral); display: flex; align-items: center;
+      justify-content: center; font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--white); font-weight: 800;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 14px; color: var(--indigo); }
+    .testi-role { font-size: 12px; color: var(--muted); }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { background: var(--indigo); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+    }
+    .contact-info { color: var(--white); }
+    .contact-info .section-title { color: var(--white); margin-bottom: 16px; }
+    .contact-info p { color: rgba(255,255,255,.65); font-size: 16px; line-height: 1.7; margin-bottom: 36px; }
+    .contact-methods { display: flex; flex-direction: column; gap: 20px; }
+    .cm-item {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .cm-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .cm-label { font-size: 12px; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .08em; }
+    .cm-value { font-size: 15px; color: var(--white); font-weight: 500; }
+    .contact-form {
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px; padding: 40px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .form-group label {
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.7); letter-spacing: .04em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px; padding: 12px 16px;
+      color: var(--white); font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none; transition: border .2s;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
+    .form-group select option { background: var(--indigo); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--coral); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; padding: 15px;
+      background: var(--coral); color: var(--white);
+      border: none; border-radius: 4px;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      cursor: pointer; transition: all .2s;
+      box-shadow: 0 4px 16px rgba(235,60,39,.28);
+    }
+    .form-submit:hover { background: var(--coral-dark); transform: translateY(-1px); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: #082649; padding: 60px 0 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 13px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.5);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-col ul a:hover { color: var(--coral); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px;
+      font-size: 13px; color: rgba(255,255,255,.3);
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: background .2s;
+    }
+    .social-icon:hover { background: var(--coral); }
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid::before { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .cats-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; gap: 48px; }
+      .why-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .section { padding: 64px 0; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .cats-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-actions { flex-direction: column; }
+      .hero-stats { gap: 24px; }
+      .contact-form { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <div class="nav-logo-icon" style="font-family:'Playfair Display',serif;font-size:13px;font-weight:900;letter-spacing:0;">TN</div>
+          TradeNest
+        </a>
+        <ul class="nav-links">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#about" onclick="toggleMenu()">About Us</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="#contact" onclick="toggleMenu()" class="btn btn-primary">Get a Quote →</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Serving Businesses in 30+ Countries
+          </div>
+          <h1 class="hero-title">
+            Global Sourcing<br/>
+            from <span class="highlight">China</span>,<br/>
+            Made Simple
+          </h1>
+          <p class="hero-desc">
+            TradeNest connects businesses worldwide with verified Chinese manufacturers.
+            We handle sourcing, quality control, and door-to-door logistics — wherever you are in the world.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Start Sourcing Now →</a>
+            <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">30+</span>
+              <span class="stat-label">Countries Served</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">98%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">7–14</span>
+              <span class="stat-label">Days to Sample</span>
+            </div>
+          </div>
+          <!-- Markets ticker -->
+          <div class="markets-ticker">
+            <div class="ticker-track" id="tickerTrack">
+              <div class="ticker-item"><span>🇺🇸</span> United States</div>
+              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
+              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
+              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
+              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
+              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
+              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> France</div>
+              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
+              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
+              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
+              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
+              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
+              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
+              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+              <!-- duplicate for seamless loop -->
+              <div class="ticker-item"><span>🇺🇸</span> United States</div>
+              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
+              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
+              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
+              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
+              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
+              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> France</div>
+              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
+              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
+              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
+              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
+              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
+              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
+              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="hc-top">
+              <div class="hc-icon">📦</div>
+              <div>
+                <div class="hc-title">Active Orders</div>
+                <div class="hc-sub">Updated just now</div>
+              </div>
+            </div>
+            <div class="hc-items">
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(255,95,61,.12)">🎁</div>
+                <span class="hc-item-text">Branded Merchandise — 2,000 pcs</span>
+                <span class="hc-item-tag tag-green">Shipped</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(59,130,246,.12)">🧢</div>
+                <span class="hc-item-text">Custom Caps — 500 pcs</span>
+                <span class="hc-item-tag tag-sky">In QC</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(0,201,167,.12)">🖨️</div>
+                <span class="hc-item-text">Promo Bags — 1,500 pcs</span>
+                <span class="hc-item-tag tag-coral">Sourcing</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(255,95,61,.12)">🏭</div>
+                <span class="hc-item-text">Tech Accessories — 800 pcs</span>
+                <span class="hc-item-tag tag-green">Delivered</span>
+              </div>
+            </div>
+          </div>
+          <div class="float-badge float-badge-1">
+            <span class="fb-icon">✅</span>
+            <div>
+              <div class="fb-text">Quality Verified</div>
+              <div class="fb-sub">ISO-certified factories</div>
+            </div>
+          </div>
+          <div class="float-badge float-badge-2">
+            <span class="fb-icon">🚀</span>
+            <div>
+              <div class="fb-text">Fast Turnaround</div>
+              <div class="fb-sub">Sample in 7 days</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GLOBAL TRUST BAR
+  ============================================================ -->
+  <div style="background:#F4F3F8; border-bottom:1px solid #E2E0EE; padding:16px 0;">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5A6070;letter-spacing:.06em;text-transform:uppercase;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#C0392B;display:inline-block;"></span> ISO-Certified Factories
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5A6070;letter-spacing:.06em;text-transform:uppercase;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#0D3B6E;display:inline-block;"></span> Worldwide Shipping
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5A6070;letter-spacing:.06em;text-transform:uppercase;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#C0392B;display:inline-block;"></span> 30+ Countries Served
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5A6070;letter-spacing:.06em;text-transform:uppercase;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#0D3B6E;display:inline-block;"></span> English Support 24/7
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#5A6070;letter-spacing:.06em;text-transform:uppercase;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#C0392B;display:inline-block;"></span> Secure Payments
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HOW IT WORKS
+  ============================================================ -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div style="text-align:center" class="reveal">
+        <span class="tag">Simple Process</span>
+        <h2 class="section-title" style="margin:0 auto">How TradeNest Works</h2>
+        <p class="section-sub" style="margin:14px auto 0">Four simple steps from idea to delivery — we handle the complexity, you focus on your business.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-num">1</div>
+          <div class="step-emoji">💬</div>
+          <div class="step-title">Tell Us What You Need</div>
+          <p class="step-desc">Share your product requirements, quantity, budget and timeline. No idea is too big or too small.</p>
+        </div>
+        <div class="step-card reveal" style="transition-delay:.1s">
+          <div class="step-num">2</div>
+          <div class="step-emoji">🔍</div>
+          <div class="step-title">We Find the Right Factory</div>
+          <p class="step-desc">We tap our verified network of Chinese manufacturers to find the best match for your specs and budget.</p>
+        </div>
+        <div class="step-card reveal" style="transition-delay:.2s">
+          <div class="step-num">3</div>
+          <div class="step-emoji">🧪</div>
+          <div class="step-title">Sample &amp; Quality Check</div>
+          <p class="step-desc">We arrange samples, review them on your behalf, and run strict QC before mass production starts.</p>
+        </div>
+        <div class="step-card reveal" style="transition-delay:.3s">
+          <div class="step-num">4</div>
+          <div class="step-emoji">🚢</div>
+          <div class="step-title">Deliver to Your Door</div>
+          <p class="step-desc">We manage export documentation, freight, and customs clearance. Your order lands in Australia, hassle-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="services" class="section section--alt">
+    <div class="container">
+      <div class="reveal">
+        <span class="tag">What We Do</span>
+        <h2 class="section-title">Everything You Need,<br/>One Point of Contact</h2>
+        <p class="section-sub">From finding the right factory to getting goods through customs, we cover every step of the sourcing journey.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card card-v1 reveal">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🔎</div>
+          <h3 class="sc-title">Product Sourcing</h3>
+          <p class="sc-desc">We identify and vet factories that match your exact product specs, MOQ, and price targets.</p>
+          <ul class="sc-list">
+            <li>Factory research &amp; vetting</li>
+            <li>Price negotiation</li>
+            <li>Multi-supplier comparison</li>
+            <li>Custom product development</li>
+          </ul>
+        </div>
+        <div class="service-card card-v2 reveal" style="transition-delay:.1s">
+          <div class="sc-icon" style="background:rgba(192,57,43,.12)">🛡️</div>
+          <h3 class="sc-title">Quality Control</h3>
+          <p class="sc-desc">Rigorous inspection at every stage — pre-production, during production, and pre-shipment.</p>
+          <ul class="sc-list">
+            <li>Pre-shipment inspection</li>
+            <li>Lab testing coordination</li>
+            <li>Defect reporting with photos</li>
+            <li>Production milestone checks</li>
+          </ul>
+        </div>
+        <div class="service-card card-v3 reveal" style="transition-delay:.2s">
+          <div class="sc-icon" style="background:rgba(255,255,255,.2)">📦</div>
+          <h3 class="sc-title">Logistics &amp; Shipping</h3>
+          <p class="sc-desc">End-to-end freight management — sea, air, or express — delivered to any Australian address.</p>
+          <ul class="sc-list">
+            <li>Sea &amp; air freight options</li>
+            <li>Customs clearance</li>
+            <li>Real-time shipment tracking</li>
+            <li>Door-to-door delivery</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.3s">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🎨</div>
+          <h3 class="sc-title">Custom Branding</h3>
+          <p class="sc-desc">Your logo, your colours, your packaging — we handle all custom branding coordination with factories.</p>
+          <ul class="sc-list">
+            <li>Logo &amp; print coordination</li>
+            <li>Custom packaging design</li>
+            <li>Brand guidelines compliance</li>
+            <li>Artwork file management</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.4s">
+          <div class="sc-icon" style="background:var(--coral-bg)">📊</div>
+          <h3 class="sc-title">Order Management</h3>
+          <p class="sc-desc">Stay in the loop with full transparency — regular updates, photo reports, and a dedicated contact.</p>
+          <ul class="sc-list">
+            <li>Dedicated account manager</li>
+            <li>Production progress reports</li>
+            <li>Document management</li>
+            <li>WeChat / email updates</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.5s">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🤝</div>
+          <h3 class="sc-title">Supplier Relations</h3>
+          <p class="sc-desc">We build long-term factory relationships so your repeat orders get priority treatment and better pricing.</p>
+          <ul class="sc-list">
+            <li>Long-term supplier matching</li>
+            <li>Volume discount negotiation</li>
+            <li>Factory audits &amp; certifications</li>
+            <li>Backup supplier management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRODUCT CATEGORIES
+  ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center" class="reveal">
+        <span class="tag">What We Source</span>
+        <h2 class="section-title" style="margin:0 auto">We Source Virtually Anything</h2>
+        <p class="section-sub" style="margin:14px auto 0">From branded merchandise to industrial parts — if it's made in China, we can get it for you.</p>
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card reveal"><div class="cat-emoji">🎁</div><div class="cat-name">Branded Merchandise</div><div class="cat-examples">Tote bags, pens, notebooks, apparel, drinkware</div></div>
+        <div class="cat-card reveal" style="transition-delay:.07s"><div class="cat-emoji">🧢</div><div class="cat-name">Promotional Apparel</div><div class="cat-examples">Caps, T-shirts, hoodies, workwear, uniforms</div></div>
+        <div class="cat-card reveal" style="transition-delay:.14s"><div class="cat-emoji">📱</div><div class="cat-name">Tech Accessories</div><div class="cat-examples">Power banks, cables, earbuds, phone cases</div></div>
+        <div class="cat-card reveal" style="transition-delay:.21s"><div class="cat-emoji">🏡</div><div class="cat-name">Home &amp; Living</div><div class="cat-examples">Candles, kitchenware, décor, storage items</div></div>
+        <div class="cat-card reveal" style="transition-delay:.28s"><div class="cat-emoji">🖨️</div><div class="cat-name">Print &amp; Packaging</div><div class="cat-examples">Gift boxes, mailers, labels, display stands</div></div>
+        <div class="cat-card reveal" style="transition-delay:.35s"><div class="cat-emoji">🏋️</div><div class="cat-name">Sports &amp; Outdoors</div><div class="cat-examples">Gym gear, bottles, camping accessories</div></div>
+        <div class="cat-card reveal" style="transition-delay:.42s"><div class="cat-emoji">🧸</div><div class="cat-name">Toys &amp; Novelties</div><div class="cat-examples">Plush toys, fidget items, party goods</div></div>
+        <div class="cat-card reveal" style="transition-delay:.49s"><div class="cat-emoji">🔩</div><div class="cat-name">Industrial &amp; B2B</div><div class="cat-examples">Hardware, tools, components, safety equipment</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY US
+  ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-visual reveal">
+          <div class="why-main-box">
+            <div class="wmb-label">Performance</div>
+            <div class="wmb-title">Why clients choose TradeNest</div>
+            <div class="wmb-metrics">
+              <div class="wmb-metric">
+                <span class="wmb-metric-label">On-time Delivery</span>
+                <div class="wmb-bar-wrap"><div class="wmb-bar" style="width:96%"></div></div>
+                <span class="wmb-val">96%</span>
+              </div>
+              <div class="wmb-metric">
+                <span class="wmb-metric-label">Client Retention</span>
+                <div class="wmb-bar-wrap"><div class="wmb-bar" style="width:92%"></div></div>
+                <span class="wmb-val">92%</span>
+              </div>
+              <div class="wmb-metric">
+                <span class="wmb-metric-label">Quality Pass Rate</span>
+                <div class="wmb-bar-wrap"><div class="wmb-bar" style="width:99%"></div></div>
+                <span class="wmb-val">99%</span>
+              </div>
+              <div class="wmb-metric">
+                <span class="wmb-metric-label">Cost vs Direct</span>
+                <div class="wmb-bar-wrap"><div class="wmb-bar" style="width:85%"></div></div>
+                <span class="wmb-val">-30%</span>
+              </div>
+            </div>
+          </div>
+          <div class="why-float-1">
+            <span style="font-size:28px">⭐</span>
+            <div>
+              <div class="wf-big">4.9 / 5</div>
+              <div class="wf-sub">Average client rating</div>
+            </div>
+          </div>
+          <div class="why-float-2">
+            <div class="wf-big">$5M+</div>
+            <div class="wf-sub">Goods sourced for global clients</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="tag reveal">Why TradeNest</span>
+          <h2 class="section-title reveal">The Smarter Way to Source from China</h2>
+          <div class="why-points" style="margin-top:36px">
+            <div class="why-point reveal">
+              <div class="wp-icon" style="background:var(--coral-bg)">🇨🇳</div>
+              <div>
+                <div class="wp-title">China Insiders, Globally Focused</div>
+                <p class="wp-desc">We're based in China with deep local factory networks, but we work with clients across 30+ countries — in English, with clear communication and no time zone excuses.</p>
+              </div>
+            </div>
+            <div class="why-point reveal" style="transition-delay:.1s">
+              <div class="wp-icon" style="background:var(--indigo-bg)">🔒</div>
+              <div>
+                <div class="wp-title">Verified Factories Only</div>
+                <p class="wp-desc">Every factory in our network has been visited, audited, and tested. We never recommend a supplier we haven't personally vetted.</p>
+              </div>
+            </div>
+            <div class="why-point reveal" style="transition-delay:.2s">
+              <div class="wp-icon" style="background:var(--coral-bg)">💰</div>
+              <div>
+                <div class="wp-title">Transparent, Flat-Fee Pricing</div>
+                <p class="wp-desc">No hidden commissions. You see exactly what the factory charges and exactly what we charge. Simple, honest, and fair.</p>
+              </div>
+            </div>
+            <div class="why-point reveal" style="transition-delay:.3s">
+              <div class="wp-icon" style="background:var(--indigo-bg)">⚡</div>
+              <div>
+                <div class="wp-title">Responsive &amp; Accountable</div>
+                <p class="wp-desc">You'll have a dedicated account manager reachable by email, WeChat, or phone — someone who owns your order end to end.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="tag reveal">Our Story</span>
+          <h2 class="section-title reveal">Built by Traders,<br/>for Businesses</h2>
+          <p class="about-desc reveal">TradeNest was founded by a team who got tired of watching businesses around the world get burned by unreliable Chinese suppliers — delayed shipments, poor quality, zero communication.</p>
+          <p class="about-desc reveal">So we built the bridge we wished existed: a sourcing partner with boots on the ground in China, who understands global business culture and holds suppliers accountable — no matter which country you're in.</p>
+          <div class="about-values reveal">
+            <div class="av-item">
+              <span class="av-icon">🎯</span>
+              <div>
+                <div class="av-title">Transparency First</div>
+                <div class="av-sub">You always know exactly what's happening with your order.</div>
+              </div>
+            </div>
+            <div class="av-item">
+              <span class="av-icon">🤝</span>
+              <div>
+                <div class="av-title">Long-Term Partnerships</div>
+                <div class="av-sub">We succeed when your business succeeds. That's our only metric.</div>
+              </div>
+            </div>
+            <div class="av-item">
+              <span class="av-icon">⚡</span>
+              <div>
+                <div class="av-title">Speed Without Compromise</div>
+                <div class="av-sub">Fast turnarounds without cutting corners on quality or safety.</div>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary reveal">Work With Us →</a>
+        </div>
+        <div class="about-visual reveal">
+          <div class="about-big-card">
+            <div class="abc-title">The TradeNest Philosophy</div>
+            <p class="abc-desc">"Sourcing from China shouldn't be a gamble. With the right partner, it's your biggest competitive advantage — lower costs, endless variety, and faster growth."</p>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" style="background:var(--coral-bg)">📦</div>
+            <div>
+              <div class="ac-num">500+</div>
+              <div class="ac-label">Product types sourced</div>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" style="background:var(--indigo-bg)">🏭</div>
+            <div>
+              <div class="ac-num">200+</div>
+              <div class="ac-label">Verified factory partners</div>
+            </div>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" style="background:var(--coral-bg)">🌍</div>
+            <div>
+              <div class="ac-num">30+</div>
+              <div class="ac-label">Countries served globally</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div style="text-align:center" class="reveal">
+        <span class="tag">Client Love</span>
+        <h2 class="section-title" style="margin:0 auto">What Our Clients Say</h2>
+        <p class="section-sub" style="margin:14px auto 0">Real words from Australian businesses who've made TradeNest their go-to sourcing partner.</p>
+      </div>
+      <div class="testi-carousel reveal">
+        <div class="testi-track">
+          <!-- Set 1 -->
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"TradeNest saved us thousands on our branded merchandise campaign. The quality was exactly as promised, and the whole process was completely stress-free. We'll never source direct again."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">S</div>
+              <div>
+                <div class="testi-name">Sarah Mitchell</div>
+                <div class="testi-role">Marketing Manager · 🇺🇸 New York, USA</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We were importing from China directly and it was a nightmare. TradeNest took over completely — factory communication, QC, freight. Now I don't even think about it."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--indigo)">T</div>
+              <div>
+                <div class="testi-name">Thomas Becker</div>
+                <div class="testi-role">Operations Director · 🇩🇪 Berlin, Germany</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"From custom packaging to tech accessories, TradeNest handles everything. As a small business in Dubai, having one reliable contact in China is genuinely a game-changer."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#6C6BC0">L</div>
+              <div>
+                <div class="testi-name">Layla Al-Rashid</div>
+                <div class="testi-role">Founder · 🇦🇪 Dubai, UAE</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"I've used three sourcing agents before TradeNest. None of them communicated as clearly or delivered as consistently. The sample arrived in 8 days — incredible."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#1A7F5A">J</div>
+              <div>
+                <div class="testi-name">James Whitfield</div>
+                <div class="testi-role">Director · 🇦🇺 Sydney, Australia</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Our promotional apparel order was handled flawlessly — right colours, right sizes, delivered on time before our event. TradeNest made us look good in front of our client."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#C0392B">M</div>
+              <div>
+                <div class="testi-name">Marie Dupont</div>
+                <div class="testi-role">Brand Manager · 🇫🇷 Paris, France</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Sourcing hardware components from China used to take months of back-and-forth. TradeNest condensed it into weeks. Their QC reports are thorough and transparent."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#0D3B6E">R</div>
+              <div>
+                <div class="testi-name">Ravi Sharma</div>
+                <div class="testi-role">Procurement Lead · 🇸🇬 Singapore</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"As a startup, we needed small MOQs and honest pricing. TradeNest found us a factory willing to work with our volumes, and the product exceeded our expectations entirely."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#7B4EA0">A</div>
+              <div>
+                <div class="testi-name">Amelia Carter</div>
+                <div class="testi-role">Co-Founder · 🇨🇦 Toronto, Canada</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We order custom gift boxes twice a year for corporate clients. TradeNest handles every detail — artwork, material, timeline. Consistent quality every single time."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#D4881A">N</div>
+              <div>
+                <div class="testi-name">Noor Al-Farsi</div>
+                <div class="testi-role">Events Manager · 🇸🇦 Riyadh, Saudi Arabia</div>
+              </div>
+            </div>
+          </div>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"TradeNest saved us thousands on our branded merchandise campaign. The quality was exactly as promised, and the whole process was completely stress-free. We'll never source direct again."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">S</div>
+              <div>
+                <div class="testi-name">Sarah Mitchell</div>
+                <div class="testi-role">Marketing Manager · 🇺🇸 New York, USA</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We were importing from China directly and it was a nightmare. TradeNest took over completely — factory communication, QC, freight. Now I don't even think about it."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--indigo)">T</div>
+              <div>
+                <div class="testi-name">Thomas Becker</div>
+                <div class="testi-role">Operations Director · 🇩🇪 Berlin, Germany</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"From custom packaging to tech accessories, TradeNest handles everything. As a small business in Dubai, having one reliable contact in China is genuinely a game-changer."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#6C6BC0">L</div>
+              <div>
+                <div class="testi-name">Layla Al-Rashid</div>
+                <div class="testi-role">Founder · 🇦🇪 Dubai, UAE</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"I've used three sourcing agents before TradeNest. None of them communicated as clearly or delivered as consistently. The sample arrived in 8 days — incredible."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#1A7F5A">J</div>
+              <div>
+                <div class="testi-name">James Whitfield</div>
+                <div class="testi-role">Director · 🇦🇺 Sydney, Australia</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Our promotional apparel order was handled flawlessly — right colours, right sizes, delivered on time before our event. TradeNest made us look good in front of our client."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#C0392B">M</div>
+              <div>
+                <div class="testi-name">Marie Dupont</div>
+                <div class="testi-role">Brand Manager · 🇫🇷 Paris, France</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Sourcing hardware components from China used to take months of back-and-forth. TradeNest condensed it into weeks. Their QC reports are thorough and transparent."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#0D3B6E">R</div>
+              <div>
+                <div class="testi-name">Ravi Sharma</div>
+                <div class="testi-role">Procurement Lead · 🇸🇬 Singapore</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"As a startup, we needed small MOQs and honest pricing. TradeNest found us a factory willing to work with our volumes, and the product exceeded our expectations entirely."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#7B4EA0">A</div>
+              <div>
+                <div class="testi-name">Amelia Carter</div>
+                <div class="testi-role">Co-Founder · 🇨🇦 Toronto, Canada</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We order custom gift boxes twice a year for corporate clients. TradeNest handles every detail — artwork, material, timeline. Consistent quality every single time."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#D4881A">N</div>
+              <div>
+                <div class="testi-name">Noor Al-Farsi</div>
+                <div class="testi-role">Events Manager · 🇸🇦 Riyadh, Saudi Arabia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GLOBAL REACH
+  ============================================================ -->
+  <section class="section" style="background:var(--indigo); overflow:hidden; position:relative;">
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+      <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:#C0392B;filter:blur(120px);opacity:.08;top:-200px;right:-100px;"></div>
+      <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:#6C6BC0;filter:blur(100px);opacity:.07;bottom:-100px;left:-50px;"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div style="text-align:center;" class="reveal">
+        <span class="tag">Global Reach</span>
+        <h2 class="section-title section-title--white" style="margin:0 auto;">We Ship Everywhere.<br/>You Buy Smarter.</h2>
+        <p class="section-sub section-sub--white" style="margin:14px auto 56px;">From our sourcing offices in China to your warehouse door — wherever you are.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:24px;" class="reveal">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🌎</div>
+          <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Americas</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;">USA · Canada · Mexico<br/>Brazil · Colombia</div>
+          <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:20px;">🇺🇸</span><span style="font-size:20px;">🇨🇦</span><span style="font-size:20px;">🇲🇽</span><span style="font-size:20px;">🇧🇷</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,95,61,.12);border:1px solid rgba(255,95,61,.25);border-radius:20px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🌍</div>
+          <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Europe &amp; Middle East</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;">UK · Germany · France · Italy<br/>UAE · Saudi Arabia · Netherlands</div>
+          <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:20px;">🇬🇧</span><span style="font-size:20px;">🇩🇪</span><span style="font-size:20px;">🇫🇷</span><span style="font-size:20px;">🇦🇪</span><span style="font-size:20px;">🇸🇦</span>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px 24px;">
+          <div style="font-size:32px;margin-bottom:12px;">🌏</div>
+          <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;">Asia Pacific</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;">Australia · New Zealand · Singapore<br/>Japan · South Korea · Thailand</div>
+          <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="font-size:20px;">🇦🇺</span><span style="font-size:20px;">🇸🇬</span><span style="font-size:20px;">🇯🇵</span><span style="font-size:20px;">🇳🇿</span><span style="font-size:20px;">🇰🇷</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:40px;text-align:center;background:rgba(255,255,255,.05);border-radius:16px;padding:24px 32px;" class="reveal">
+        <p style="color:rgba(255,255,255,.6);font-size:15px;">
+          🚢 <strong style="color:#fff;">Sea freight</strong> to any major port &nbsp;·&nbsp;
+          ✈️ <strong style="color:#fff;">Air express</strong> to your door &nbsp;·&nbsp;
+          📦 <strong style="color:#fff;">DDP shipping</strong> (duties &amp; taxes paid) available
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact" class="section section--dark">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="tag">Get Started</span>
+          <h2 class="section-title section-title--white">Ready to Source Smarter?</h2>
+          <p>Tell us what you need and we'll get back to you within 24 hours — wherever you are in the world. No commitment, no pressure, just answers.</p>
+          <div class="contact-methods">
+            <div class="cm-item">
+              <div class="cm-icon">📧</div>
+              <div>
+                <div class="cm-label">Email</div>
+                <div class="cm-value">hello@tradenest.com</div>
+              </div>
+            </div>
+            <div class="cm-item">
+              <div class="cm-icon">💬</div>
+              <div>
+                <div class="cm-label">WhatsApp</div>
+                <div class="cm-value">Available on request</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal" style="transition-delay:.1s">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@yourcompany.com" />
+          </div>
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" placeholder="Your Company" />
+          </div>
+          <div class="form-group">
+            <label>What Are You Looking to Source?</label>
+            <input type="text" placeholder="e.g. Custom tote bags, branded caps, phone accessories…" />
+          </div>
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="text" placeholder="e.g. 500 pcs" />
+          </div>
+          <div class="form-group">
+            <label>Tell Us Your Project</label>
+            <textarea placeholder="Describe your product in detail — materials, size, colour, packaging, special requirements, budget, timeline, etc."></textarea>
+          </div>
+          <button class="form-submit">Send Inquiry — It's Free →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="color:var(--white)">
+            <div class="nav-logo-icon" style="font-family:'Playfair Display',serif;font-size:13px;font-weight:900;letter-spacing:0;">TN</div>
+            TradeNest
+          </div>
+          <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
+          <p style="margin-top:10px; font-size:13px; color:rgba(255,255,255,.3)">🌍 USA · 🇬🇧 UK · 🇩🇪 Germany · 🇦🇪 UAE · 🇸🇬 Singapore · 🇦🇺 AU · and 25+ more</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Product Sourcing</a></li>
+            <li><a href="#services">Quality Control</a></li>
+            <li><a href="#services">Logistics</a></li>
+            <li><a href="#services">Custom Branding</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@tradenest.com">hello@tradenest.com</a></li>
+            <li><a href="#contact">Get a Quote</a></li>
+            <li><a href="#contact">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TradeNest. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">𝕏</a>
+          <a href="#" class="social-icon">📘</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JS
+  ============================================================ -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit
+    document.querySelector('.form-submit').addEventListener('click', function(e) {
+      e.preventDefault();
+      this.textContent = '✅ Message Sent! We\'ll be in touch within 24h.';
+      this.style.background = '#2D2B7F';
+      this.style.color = '#fff';
+      setTimeout(() => {
+        this.textContent = 'Send Inquiry — It\'s Free →';
+        this.style.background = '';
+        this.style.color = '';
+      }, 4000);
+    });
+
+    // Smooth number counters for stats
+    function animateCounter(el, target, suffix='') {
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current) + suffix;
+      }, 16);
+    }
+  </script>
+</body>
+</html>
