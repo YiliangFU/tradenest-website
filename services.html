@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | TradeNest – Global Sourcing from China</title>
+  <meta name="description" content="Discover TradeNest's comprehensive sourcing services: product sourcing, quality control, logistics, and custom branding." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #C0392B; --coral-light: #D44232; --coral-dark: #962D22; --coral-bg: #FAEEED;
+      --indigo: #0D3B6E; --indigo-mid: #154D8A; --indigo-light: #1E60A6; --indigo-bg: #EAF1FA;
+      --sky: #3A6EA8; --mint: #E4EEF8; --sand: #F7F8FA; --grey: #EDEEF1;
+      --text: #14243A; --muted: #5A6878; --white: #FFFFFF;
+      --radius: 6px; --shadow: 0 4px 20px rgba(13,59,110,.12); --shadow-lg: 0 16px 48px rgba(13,59,110,.20);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section--alt { background: var(--indigo-bg); }
+    .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); border-bottom: 2px solid var(--coral); padding: 0 0 4px 0; margin-bottom: 18px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.18; color: var(--indigo); }
+    .section-sub { font-size: 17px; color: var(--muted); max-width: 560px; margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-weight: 600; font-size: 14px; letter-spacing: .04em; cursor: pointer; border: none; transition: all .2s ease; text-transform: uppercase; }
+    .btn-primary { background: var(--coral); color: var(--white); box-shadow: 0 4px 16px rgba(192,57,43,.30); }
+    .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.40); z-index: 9999; transition: all .2s ease; }
+    .whatsapp-float:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(37,211,102,.50); }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 18px 0; background: var(--indigo); }
+    #navbar.scrolled { background: rgba(255,255,255,.96); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,.08); padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85); transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    #navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 4px; font-size: 13px !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--indigo); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--white); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 32px; color: var(--white); cursor: pointer; }
+    .page-header { background: linear-gradient(135deg, #0D3B6E 0%, #082649 100%); padding: 140px 0 80px; color: var(--white); text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; margin-bottom: 16px; }
+    .page-header p { font-size: 18px; opacity: 0.8; max-width: 600px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .service-card { border-radius: 6px; padding: 36px 28px; transition: transform .22s, box-shadow .22s; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .sc-icon { width: 58px; height: 58px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 22px; }
+    .sc-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 800; color: var(--indigo); margin-bottom: 12px; }
+    .sc-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
+    .sc-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .sc-list li { font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .sc-list li::before { content: '✓'; color: var(--coral); font-weight: 800; }
+    .card-v1 { background: var(--white); box-shadow: var(--shadow); border: 1px solid #E8E8F0; border-left: 3px solid var(--coral); }
+    .card-v2 { background: var(--indigo); border-left: 3px solid var(--coral); }
+    .card-v2 .sc-title { color: var(--white); }
+    .card-v2 .sc-desc { color: rgba(255,255,255,.65); }
+    .card-v2 .sc-list li { color: rgba(255,255,255,.8); }
+    .card-v3 { background: var(--coral); border-left: 3px solid rgba(255,255,255,.4); }
+    .card-v3 .sc-title { color: var(--white); }
+    .card-v3 .sc-desc { color: rgba(255,255,255,.75); }
+    .card-v3 .sc-list li { color: rgba(255,255,255,.85); }
+    .card-v3 .sc-list li::before { color: var(--white); }
+    .cats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
+    .cat-card { background: var(--white); border: 1px solid #E4E4EE; border-top: 3px solid transparent; border-radius: 6px; padding: 28px 20px; text-align: center; transition: all .22s; }
+    .cat-card:hover { border-top-color: var(--indigo); transform: translateY(-4px); box-shadow: 0 10px 32px rgba(30,22,82,.12); }
+    .cat-emoji { font-size: 38px; margin-bottom: 14px; }
+    .cat-name { font-weight: 700; font-size: 15px; color: var(--indigo); margin-bottom: 6px; }
+    .cat-examples { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    footer { background: #082649; padding: 60px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-col ul a:hover { color: var(--coral); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; font-size: 13px; color: rgba(255,255,255,.3); }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: 1fr 1fr; } .cats-grid { grid-template-columns: repeat(2, 1fr); } .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .section { padding: 64px 0; } .nav-links { display: none; } .hamburger { display: flex; } .services-grid { grid-template-columns: 1fr; } .cats-grid { grid-template-columns: repeat(2, 1fr); } .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+        </a>
+        <ul class="nav-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="about.html" onclick="toggleMenu()">About Us</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>From finding the right factory to getting goods through customs, we cover every step of the sourcing journey.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="reveal">
+        <span class="tag">What We Do</span>
+        <h2 class="section-title">Everything You Need,<br/>One Point of Contact</h2>
+        <p class="section-sub">Comprehensive sourcing solutions tailored to your business needs.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card card-v1 reveal">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🔎</div>
+          <h3 class="sc-title">Product Sourcing</h3>
+          <p class="sc-desc">We identify and vet factories that match your exact product specs, MOQ, and price targets.</p>
+          <ul class="sc-list">
+            <li>Factory research & vetting</li>
+            <li>Price negotiation</li>
+            <li>Multi-supplier comparison</li>
+            <li>Custom product development</li>
+          </ul>
+        </div>
+        <div class="service-card card-v2 reveal" style="transition-delay:.1s">
+          <div class="sc-icon" style="background:rgba(192,57,43,.12)">🛡️</div>
+          <h3 class="sc-title">Quality Control</h3>
+          <p class="sc-desc">Rigorous inspection at every stage — pre-production, during production, and pre-shipment.</p>
+          <ul class="sc-list">
+            <li>Pre-shipment inspection</li>
+            <li>Lab testing coordination</li>
+            <li>Defect reporting with photos</li>
+            <li>Production milestone checks</li>
+          </ul>
+        </div>
+        <div class="service-card card-v3 reveal" style="transition-delay:.2s">
+          <div class="sc-icon" style="background:rgba(255,255,255,.2)">📦</div>
+          <h3 class="sc-title">Logistics & Shipping</h3>
+          <p class="sc-desc">End-to-end freight management — sea, air, or express — delivered to any address worldwide.</p>
+          <ul class="sc-list">
+            <li>Sea & air freight options</li>
+            <li>Customs clearance</li>
+            <li>Real-time shipment tracking</li>
+            <li>Door-to-door delivery</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.3s">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🎨</div>
+          <h3 class="sc-title">Custom Branding</h3>
+          <p class="sc-desc">Your logo, your colours, your packaging — we handle all custom branding coordination with factories.</p>
+          <ul class="sc-list">
+            <li>Logo & print coordination</li>
+            <li>Custom packaging design</li>
+            <li>Brand guidelines compliance</li>
+            <li>Artwork file management</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.4s">
+          <div class="sc-icon" style="background:var(--coral-bg)">📊</div>
+          <h3 class="sc-title">Order Management</h3>
+          <p class="sc-desc">Stay in the loop with full transparency — regular updates, photo reports, and a dedicated contact.</p>
+          <ul class="sc-list">
+            <li>Dedicated account manager</li>
+            <li>Production progress reports</li>
+            <li>Document management</li>
+            <li>WeChat / email updates</li>
+          </ul>
+        </div>
+        <div class="service-card card-v1 reveal" style="transition-delay:.5s">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🤝</div>
+          <h3 class="sc-title">Supplier Relations</h3>
+          <p class="sc-desc">We build long-term factory relationships so your repeat orders get priority treatment and better pricing.</p>
+          <ul class="sc-list">
+            <li>Long-term supplier matching</li>
+            <li>Volume discount negotiation</li>
+            <li>Factory audits & certifications</li>
+            <li>Backup supplier management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center" class="reveal">
+        <span class="tag">Value-Added Services</span>
+        <h2 class="section-title" style="margin:0 auto">Value-Added Services</h2>
+        <p class="section-sub" style="margin:14px auto 0">For first-time clients or those planning to visit China, we provide comprehensive business support services.</p>
+      </div>
+      <div class="services-grid" style="margin-top:48px">
+        <div class="service-card card-v1 reveal">
+          <div class="sc-icon" style="background:var(--indigo-bg)">🏭</div>
+          <h3 class="sc-title">Factory Audit Tour</h3>
+          <p class="sc-desc">Arrange on-site factory visits to understand production processes and quality control systems.</p>
+          <ul class="sc-list">
+            <li>Factory qualification audit</li>
+            <li>Production line inspection</li>
+            <li>Quality management assessment</li>
+            <li>Face-to-face business negotiation</li>
+          </ul>
+        </div>
+        <div class="service-card card-v2 reveal" style="transition-delay:.1s">
+          <div class="sc-icon" style="background:rgba(192,57,43,.12)">🗣️</div>
+          <h3 class="sc-title">Business Translation</h3>
+          <p class="sc-desc">Professional business interpreter accompaniment to ensure smooth communication and negotiations.</p>
+          <ul class="sc-list">
+            <li>Professional business interpretation</li>
+            <li>Technical document translation</li>
+            <li>Contract term interpretation</li>
+            <li>Cultural difference coordination</li>
+          </ul>
+        </div>
+        <div class="service-card card-v3 reveal" style="transition-delay:.2s">
+          <div class="sc-icon" style="background:rgba(255,255,255,.2)">✈️</div>
+          <h3 class="sc-title">China Travel Arrangement</h3>
+          <p class="sc-desc">Optional value-added service providing one-stop solutions for your business trip to China.</p>
+          <ul class="sc-list">
+            <li>Flight & hotel booking</li>
+            <li>Airport transfer service</li>
+            <li>Inter-city transportation</li>
+            <li>Business dining arrangements</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:var(--coral-bg);border-radius:8px;padding:28px 32px;margin-top:40px" class="reveal">
+        <p style="font-size:15px;color:var(--text);line-height:1.8;margin:0"><strong style="color:var(--coral)">Pricing:</strong> For first-time clients or those planning to visit China, we can arrange factory visits with on-site accompaniment and translation services. Fees are charged based on specific timing and arrangements. Please contact us for a customized quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div style="text-align:center" class="reveal">
+        <span class="tag">What We Source</span>
+        <h2 class="section-title" style="margin:0 auto">We Source Virtually Anything</h2>
+        <p class="section-sub" style="margin:14px auto 0">From branded merchandise to industrial parts — if it's made in China, we can get it for you.</p>
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card reveal"><div class="cat-emoji">🎁</div><div class="cat-name">Branded Merchandise</div><div class="cat-examples">Tote bags, pens, notebooks, apparel</div></div>
+        <div class="cat-card reveal" style="transition-delay:.07s"><div class="cat-emoji">🧢</div><div class="cat-name">Promotional Apparel</div><div class="cat-examples">Caps, T-shirts, hoodies, uniforms</div></div>
+        <div class="cat-card reveal" style="transition-delay:.14s"><div class="cat-emoji">📱</div><div class="cat-name">Tech Accessories</div><div class="cat-examples">Power banks, cables, phone cases</div></div>
+        <div class="cat-card reveal" style="transition-delay:.21s"><div class="cat-emoji">🏡</div><div class="cat-name">Home & Living</div><div class="cat-examples">Candles, kitchenware, décor</div></div>
+        <div class="cat-card reveal" style="transition-delay:.28s"><div class="cat-emoji">🖨️</div><div class="cat-name">Print & Packaging</div><div class="cat-examples">Gift boxes, mailers, labels</div></div>
+        <div class="cat-card reveal" style="transition-delay:.35s"><div class="cat-emoji">🏋️</div><div class="cat-name">Sports & Outdoors</div><div class="cat-examples">Gym gear, bottles, camping</div></div>
+        <div class="cat-card reveal" style="transition-delay:.42s"><div class="cat-emoji">🧸</div><div class="cat-name">Toys & Novelties</div><div class="cat-examples">Plush toys, fidget items</div></div>
+        <div class="cat-card reveal" style="transition-delay:.49s"><div class="cat-emoji">🔩</div><div class="cat-name">Industrial & B2B</div><div class="cat-examples">Hardware, tools, components</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
+          <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Product Sourcing</a></li>
+            <li><a href="services.html">Quality Control</a></li>
+            <li><a href="services.html">Logistics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get a Quote</a></li>
+            <li><a href="mailto:account@tradenest.cn">account@tradenest.cn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TradeNest. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+  <a href="https://api.whatsapp.com/send?phone=8615273256913&text=Hi%20TradeNest%2C%20I'm%20interested%20in%20your%20sourcing%20services" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</body>
+</html>
