@@ -1,0 +1,6 @@
+name = "tradenest-website"
+type = "static"
+account_id = "f94d1608491dd85a31397b85ed67da2f"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }

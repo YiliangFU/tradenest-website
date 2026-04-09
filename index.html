@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeNest – Global Sourcing from China, Made Simple</title>
+  <meta name="description" content="TradeNest connects businesses worldwide with trusted Chinese manufacturers. Custom sourcing, quality control, and end-to-end logistics – serving clients across USA, Europe, Australia, Middle East and beyond." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #C0392B;
+      --coral-light: #D44232;
+      --coral-dark: #962D22;
+      --coral-bg: #FAEEED;
+      --indigo: #0D3B6E;
+      --indigo-mid: #154D8A;
+      --indigo-light: #1E60A6;
+      --indigo-bg: #EAF1FA;
+      --text: #14243A;
+      --muted: #5A6878;
+      --white: #FFFFFF;
+      --shadow: 0 4px 20px rgba(13,59,110,.12);
+      --shadow-lg: 0 16px 48px rgba(13,59,110,.20);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 4px;
+      font-weight: 600; font-size: 14px; letter-spacing: .04em;
+      cursor: pointer; border: none; transition: all .2s ease;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      background: var(--coral); color: var(--white);
+      box-shadow: 0 4px 16px rgba(192,57,43,.30);
+    }
+    .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,.42); }
+    /* WhatsApp浮动按钮 */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,.40);
+      z-index: 9999;
+      transition: all .2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(37,211,102,.50);
+    }
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.55);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* NAVBAR */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 18px 0;
+      transition: background .3s, box-shadow .3s, padding .3s;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 800;
+      color: var(--white);
+      display: flex; align-items: center; gap: 10px;
+      transition: color .3s;
+      letter-spacing: .02em;
+    }
+    #navbar.scrolled .nav-logo { color: var(--indigo); }
+    .nav-links {
+      display: flex; gap: 36px; align-items: center;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 600;
+      color: rgba(255,255,255,.85);
+      transition: color .2s;
+    }
+    #navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      background: var(--coral); color: var(--white) !important;
+      padding: 9px 20px; border-radius: 4px;
+      font-size: 13px !important; letter-spacing: .05em;
+      text-transform: uppercase; font-weight: 600 !important;
+      box-shadow: 0 3px 12px rgba(235,60,39,.28);
+    }
+    .nav-cta:hover { background: var(--coral-dark) !important; transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 2px; border-radius: 2px;
+      background: var(--white); transition: background .3s;
+    }
+    #navbar.scrolled .hamburger span { background: var(--indigo); }
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--indigo); z-index: 998;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 40px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 800; color: var(--white);
+    }
+    .mobile-menu a:hover { color: var(--coral); }
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px;
+      font-size: 32px; color: var(--white); cursor: pointer;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0D3B6E 0%, #082649 55%, #0B3360 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 0 80px;
+    }
+    .hero-bg-blobs {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: .18;
+    }
+    .blob-1 { width: 600px; height: 600px; background: #C0392B; top: -200px; right: -150px; }
+    .blob-2 { width: 400px; height: 400px; background: #6C6BC0; bottom: -100px; left: -100px; }
+    .blob-3 { width: 300px; height: 300px; background: #A09FDB; top: 40%; left: 30%; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 100px; padding: 6px 16px 6px 8px;
+      font-size: 13px; color: rgba(255,255,255,.9);
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--coral); flex-shrink: 0;
+    }
+    .markets-ticker {
+      margin-top: 36px;
+      overflow: hidden;
+      position: relative;
+    }
+    .markets-ticker::before, .markets-ticker::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; width: 60px;
+      z-index: 2; pointer-events: none;
+    }
+    .markets-ticker::before { left: 0; background: linear-gradient(90deg, rgba(10,56,96,1), transparent); }
+    .markets-ticker::after  { right: 0; background: linear-gradient(-90deg, rgba(10,56,96,1), transparent); }
+    .ticker-track {
+      display: flex; gap: 10px;
+      animation: ticker 28s linear infinite;
+      width: max-content;
+    }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: 6px 16px; white-space: nowrap;
+      font-size: 13px; color: rgba(255,255,255,.8); font-weight: 500;
+    }
+    .ticker-item span { font-size: 17px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5.2vw, 64px);
+      font-weight: 900; color: var(--white);
+      line-height: 1.1; margin-bottom: 22px;
+    }
+    .hero-title .highlight {
+      color: var(--coral);
+      position: relative; display: inline-block;
+    }
+    .hero-desc {
+      font-size: 18px; color: rgba(255,255,255,.72);
+      max-width: 480px; line-height: 1.7; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 800; color: var(--white);
+    }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,.5); }
+    .hero-visual {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-card-main {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 24px; padding: 32px;
+      width: 100%; max-width: 420px;
+    }
+    .hc-top {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hc-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--coral); display: flex;
+      align-items: center; justify-content: center; font-size: 22px;
+      flex-shrink: 0;
+    }
+    .hc-title { font-weight: 700; color: var(--white); font-size: 16px; }
+    .hc-sub { font-size: 13px; color: rgba(255,255,255,.5); }
+    .hc-items { display: flex; flex-direction: column; gap: 14px; }
+    .hc-item {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.05);
+      border-radius: 12px; padding: 12px 16px;
+    }
+    .hc-item-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+    }
+    .hc-item-text { font-size: 14px; color: rgba(255,255,255,.85); font-weight: 500; }
+    .hc-item-tag {
+      margin-left: auto; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .tag-green { background: rgba(45,43,127,.12); color: #5B59C4; }
+    .tag-coral { background: rgba(192,57,43,.12); color: var(--coral-light); }
+    .tag-sky   { background: rgba(74,72,176,.12); color: #7B79D4; }
+    .float-badge {
+      position: absolute;
+      background: var(--white); border-radius: 16px;
+      padding: 14px 18px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .float-badge-1 { bottom: -20px; left: -30px; }
+    .float-badge-2 { top: -20px; right: -24px; }
+    .fb-icon { font-size: 24px; }
+    .fb-text { font-size: 13px; font-weight: 700; color: var(--indigo); }
+    .fb-sub { font-size: 11px; color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      background: #082649; padding: 60px 0 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 13px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.5);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-col ul a:hover { color: var(--coral); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 28px;
+      font-size: 13px; color: rgba(255,255,255,.3);
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: background .2s;
+    }
+    .social-icon:hover { background: var(--coral); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-actions { flex-direction: column; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+        </a>
+        <ul class="nav-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="about.html" onclick="toggleMenu()">About Us</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="contact.html" onclick="toggleMenu()" class="btn btn-primary">Get a Quote →</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Serving Businesses in 30+ Countries
+          </div>
+          <h1 class="hero-title">
+            Global Sourcing<br/>
+            from <span class="highlight">China</span>,<br/>
+            Made Simple
+          </h1>
+          <p class="hero-desc">
+            TradeNest connects businesses worldwide with verified Chinese manufacturers.
+            We handle sourcing, quality control, and door-to-door logistics — wherever you are in the world.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-primary">Start Sourcing Now →</a>
+            <a href="how-it-works.html" class="btn btn-outline">See How It Works</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">30+</span>
+              <span class="stat-label">Countries Served</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">98%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">7–14</span>
+              <span class="stat-label">Days to Sample</span>
+            </div>
+          </div>
+          <!-- Markets ticker -->
+          <div class="markets-ticker">
+            <div class="ticker-track" id="tickerTrack">
+              <div class="ticker-item"><span>🇺🇸</span> United States</div>
+              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
+              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
+              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
+              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
+              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
+              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> France</div>
+              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
+              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
+              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
+              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
+              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
+              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
+              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+              <!-- duplicate for seamless loop -->
+              <div class="ticker-item"><span>🇺🇸</span> United States</div>
+              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
+              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
+              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
+              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
+              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
+              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> France</div>
+              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
+              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
+              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
+              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
+              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
+              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
+              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="hc-top">
+              <div class="hc-icon">📦</div>
+              <div>
+                <div class="hc-title">Active Orders</div>
+                <div class="hc-sub">Updated just now</div>
+              </div>
+            </div>
+            <div class="hc-items">
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(255,95,61,.12)">🎁</div>
+                <span class="hc-item-text">Branded Merchandise — 2,000 pcs</span>
+                <span class="hc-item-tag tag-green">Shipped</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(59,130,246,.12)">🧢</div>
+                <span class="hc-item-text">Custom Caps — 500 pcs</span>
+                <span class="hc-item-tag tag-sky">In QC</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(0,201,167,.12)">🖨️</div>
+                <span class="hc-item-text">Promo Bags — 1,500 pcs</span>
+                <span class="hc-item-tag tag-coral">Sourcing</span>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-icon" style="background:rgba(255,95,61,.12)">🏭</div>
+                <span class="hc-item-text">Tech Accessories — 800 pcs</span>
+                <span class="hc-item-tag tag-green">Delivered</span>
+              </div>
+            </div>
+          </div>
+          <div class="float-badge float-badge-1">
+            <span class="fb-icon">✅</span>
+            <div>
+              <div class="fb-text">Quality Verified</div>
+              <div class="fb-sub">ISO-certified factories</div>
+            </div>
+          </div>
+          <div class="float-badge float-badge-2">
+            <span class="fb-icon">🚀</span>
+            <div>
+              <div class="fb-text">Fast Turnaround</div>
+              <div class="fb-sub">Sample in 7 days</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
+          <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Product Sourcing</a></li>
+            <li><a href="services.html">Quality Control</a></li>
+            <li><a href="services.html">Logistics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get a Quote</a></li>
+            <li><a href="mailto:account@tradenest.cn">account@tradenest.cn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TradeNest. All rights reserved.</span>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">𝕏</a>
+          <a href="#" class="social-icon">📘</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+  <!-- WhatsApp浮动按钮 -->
+  <a href="https://api.whatsapp.com/send?phone=8615273256913&text=Hi%20TradeNest%2C%20I'm%20interested%20in%20your%20sourcing%20services" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</body>
+</html>

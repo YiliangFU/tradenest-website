@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote | TradeNest – Global Sourcing from China</title>
+  <meta name="description" content="Contact TradeNest for a free quote. Tell us what you need and we'll get back to you within 24 hours." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800,900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #C0392B; --coral-light: #D44232; --coral-dark: #962D22; --coral-bg: #FAEEED;
+      --indigo: #0D3B6E; --indigo-mid: #154D8A; --indigo-light: #1E60A6; --indigo-bg: #EAF1FA;
+      --sky: #3A6EA8; --mint: #E4EEF8; --sand: #F7F8FA; --grey: #EDEEF1;
+      --text: #14243A; --muted: #5A6878; --white: #FFFFFF;
+      --radius: 6px; --shadow: 0 4px 20px rgba(13,59,110,.12); --shadow-lg: 0 16px 48px rgba(13,59,110,.20);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); border-bottom: 2px solid var(--coral); padding: 0 0 4px 0; margin-bottom: 18px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.18; color: var(--indigo); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 4px; font-weight: 600; font-size: 14px; letter-spacing: .04em; cursor: pointer; border: none; transition: all .2s ease; text-transform: uppercase; }
+    .btn-primary { background: var(--coral); color: var(--white); box-shadow: 0 4px 16px rgba(192,57,43,.30); }
+    .btn-primary:hover { background: var(--coral-dark); transform: translateY(-1px); }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,.40); z-index: 9999; transition: all .2s ease; }
+    .whatsapp-float:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(37,211,102,.50); }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 18px 0; background: var(--indigo); }
+    #navbar.scrolled { background: rgba(255,255,255,.96); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,.08); padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85); transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    #navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 4px; font-size: 13px !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--indigo); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--white); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 32px; color: var(--white); cursor: pointer; }
+    .page-header { background: linear-gradient(135deg, #0D3B6E 0%, #082649 100%); padding: 140px 0 80px; color: var(--white); text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 800; margin-bottom: 16px; }
+    .page-header p { font-size: 18px; opacity: 0.8; max-width: 600px; margin: 0 auto; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-info { color: var(--text); }
+    .contact-info .section-title { margin-bottom: 16px; }
+    .contact-info > p { color: var(--muted); font-size: 16px; line-height: 1.7; margin-bottom: 36px; }
+    .contact-methods { display: flex; flex-direction: column; gap: 20px; }
+    .cm-item { display: flex; align-items: center; gap: 16px; }
+    .cm-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--indigo-bg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .cm-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .cm-value { font-size: 15px; color: var(--text); font-weight: 500; }
+    .contact-form { background: var(--white); border: 1px solid #E8E8F0; border-radius: 24px; padding: 40px; box-shadow: var(--shadow); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: .04em; }
+    .form-group input, .form-group textarea { background: #F7F8FA; border: 1px solid #E8E8F0; border-radius: 10px; padding: 12px 16px; color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif; outline: none; transition: border .2s; width: 100%; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--coral); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 15px; background: var(--coral); color: var(--white); border: none; border-radius: 4px; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: all .2s; box-shadow: 0 4px 16px rgba(235,60,39,.28); }
+    .form-submit:hover { background: var(--coral-dark); transform: translateY(-1px); }
+    footer { background: #082649; padding: 60px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 20px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-col ul a:hover { color: var(--coral); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; font-size: 13px; color: rgba(255,255,255,.3); }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; gap: 48px; } .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .section { padding: 64px 0; } .nav-links { display: none; } .hamburger { display: flex; } .form-row { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+        </a>
+        <ul class="nav-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="nav-cta active">Get a Quote</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">✕</span>
+    <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+    <a href="services.html" onclick="toggleMenu()">Services</a>
+    <a href="about.html" onclick="toggleMenu()">About Us</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Get a Quote</h1>
+      <p>Tell us what you need and we'll get back to you within 24 hours — wherever you are in the world.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--indigo-bg);">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="tag">Get Started</span>
+          <h2 class="section-title">Ready to Source Smarter?</h2>
+          <p>No commitment, no pressure, just answers. Fill out the form and our team will reach out within 24 hours.</p>
+          <div class="contact-methods">
+            <div class="cm-item">
+              <div class="cm-icon">📧</div>
+              <div>
+                <div class="cm-label">Email</div>
+                <div class="cm-value">account@tradenest.cn</div>
+              </div>
+            </div>
+            <div class="cm-item">
+              <div class="cm-icon">💬</div>
+              <div>
+                <div class="cm-label">WhatsApp</div>
+                <div class="cm-value">Available on request</div>
+              </div>
+            </div>
+            <div class="cm-item">
+              <div class="cm-icon">🌍</div>
+              <div>
+                <div class="cm-label">Global Support</div>
+                <div class="cm-value">Serving 30+ countries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form reveal" style="transition-delay:.1s">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="john@yourcompany.com" />
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" placeholder="Your Company" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>What Are You Looking to Source?</label>
+            <input type="text" placeholder="e.g. Custom tote bags, branded caps, phone accessories…" />
+          </div>
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="text" placeholder="e.g. 500 pcs" />
+          </div>
+          <div class="form-group">
+            <label>Tell Us Your Project</label>
+            <textarea placeholder="Describe your product in detail — materials, size, colour, packaging, special requirements, budget, timeline, etc."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm(this)">Send Inquiry — It's Free →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
+          <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Product Sourcing</a></li>
+            <li><a href="services.html">Quality Control</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get a Quote</a></li>
+            <li><a href="mailto:account@tradenest.cn">account@tradenest.cn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 TradeNest. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+    function submitForm(btn) {
+      btn.textContent = '✅ Message Sent! We\'ll be in touch within 24h.';
+      btn.style.background = '#2D2B7F';
+      setTimeout(() => {
+        btn.textContent = 'Send Inquiry — It\'s Free →';
+        btn.style.background = '';
+      }, 4000);
+    }
+  </script>
+  <a href="https://api.whatsapp.com/send?phone=8615273256913&text=Hi%20TradeNest%2C%20I'm%20interested%20in%20your%20sourcing%20services" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</body>
+</html>
