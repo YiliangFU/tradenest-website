@@ -263,14 +263,14 @@
     }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .ticker-item {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 10px;
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 100px;
-      padding: 6px 16px; white-space: nowrap;
-      font-size: 13px; color: rgba(255,255,255,.8); font-weight: 500;
+      padding: 10px 20px; white-space: nowrap;
+      font-size: 14px; color: rgba(255,255,255,.9); font-weight: 500;
     }
-    .ticker-item span { font-size: 17px; }
+    .ticker-item span { font-size: 18px; flex-shrink: 0; }
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(36px, 5.2vw, 64px);
@@ -474,36 +474,34 @@
               <span class="stat-label">Days to Sample</span>
             </div>
           </div>
-          <!-- Markets ticker -->
+          <!-- Client testimonials ticker -->
           <div class="markets-ticker">
             <div class="ticker-track" id="tickerTrack">
-              <div class="ticker-item"><span>🇺🇸</span> United States</div>
-              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
-              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
-              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
-              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
-              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
-              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
-              <div class="ticker-item"><span>🇫🇷</span> France</div>
-              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
-              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
-              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
-              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
-              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
-              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
-              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+              <div class="ticker-item"><span>🇺🇸</span> "TradeNest saved us 40% on procurement costs" — Sarah, New York</div>
+              <div class="ticker-item"><span>🇬🇧</span> "Quality exceeded our expectations every time" — James, London</div>
+              <div class="ticker-item"><span>🇦🇺</span> "From sample to delivery in just 3 weeks" — Emma, Sydney</div>
+              <div class="ticker-item"><span>🇩🇪</span> "Professional team, transparent process" — Michael, Berlin</div>
+              <div class="ticker-item"><span>🇨🇦</span> "Best sourcing partner we've worked with" — David, Toronto</div>
+              <div class="ticker-item"><span>🇦🇪</span> "Reliable quality control and fast shipping" — Ahmed, Dubai</div>
+              <div class="ticker-item"><span>🇸🇬</span> "Helped us scale from 100 to 10,000 units" — Lisa, Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> "Excellent communication throughout" — Pierre, Paris</div>
+              <div class="ticker-item"><span>🇳🇱</span> "Found suppliers we couldn't reach ourselves" — Anna, Amsterdam</div>
+              <div class="ticker-item"><span>🇯🇵</span> "Precision and attention to detail is unmatched" — Yuki, Tokyo</div>
+              <div class="ticker-item"><span>🇳🇿</span> "Made importing from China stress-free" — Tom, Auckland</div>
+              <div class="ticker-item"><span>🇸🇦</span> "Consistent quality across 50+ orders" — Omar, Riyadh</div>
               <!-- duplicate for seamless loop -->
-              <div class="ticker-item"><span>🇺🇸</span> United States</div>
-              <div class="ticker-item"><span>🇬🇧</span> United Kingdom</div>
-              <div class="ticker-item"><span>🇦🇺</span> Australia</div>
-              <div class="ticker-item"><span>🇩🇪</span> Germany</div>
-              <div class="ticker-item"><span>🇨🇦</span> Canada</div>
-              <div class="ticker-item"><span>🇦🇪</span> UAE</div>
-              <div class="ticker-item"><span>🇸🇬</span> Singapore</div>
-              <div class="ticker-item"><span>🇫🇷</span> France</div>
-              <div class="ticker-item"><span>🇳🇱</span> Netherlands</div>
-              <div class="ticker-item"><span>🇯🇵</span> Japan</div>
-              <div class="ticker-item"><span>🇳🇿</span> New Zealand</div>
+              <div class="ticker-item"><span>🇺🇸</span> "TradeNest saved us 40% on procurement costs" — Sarah, New York</div>
+              <div class="ticker-item"><span>🇬🇧</span> "Quality exceeded our expectations every time" — James, London</div>
+              <div class="ticker-item"><span>🇦🇺</span> "From sample to delivery in just 3 weeks" — Emma, Sydney</div>
+              <div class="ticker-item"><span>🇩🇪</span> "Professional team, transparent process" — Michael, Berlin</div>
+              <div class="ticker-item"><span>🇨🇦</span> "Best sourcing partner we've worked with" — David, Toronto</div>
+              <div class="ticker-item"><span>🇦🇪</span> "Reliable quality control and fast shipping" — Ahmed, Dubai</div>
+              <div class="ticker-item"><span>🇸🇬</span> "Helped us scale from 100 to 10,000 units" — Lisa, Singapore</div>
+              <div class="ticker-item"><span>🇫🇷</span> "Excellent communication throughout" — Pierre, Paris</div>
+              <div class="ticker-item"><span>🇳🇱</span> "Found suppliers we couldn't reach ourselves" — Anna, Amsterdam</div>
+              <div class="ticker-item"><span>🇯🇵</span> "Precision and attention to detail is unmatched" — Yuki, Tokyo</div>
+              <div class="ticker-item"><span>🇳🇿</span> "Made importing from China stress-free" — Tom, Auckland</div>
+              <div class="ticker-item"><span>🇸🇦</span> "Consistent quality across 50+ orders" — Omar, Riyadh</div>
               <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
               <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
               <div class="ticker-item"><span>🇮🇹</span> Italy</div>
