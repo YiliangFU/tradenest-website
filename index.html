@@ -527,21 +527,21 @@
                 <div style="font-size: 12px; color: rgba(255,255,255,.5);">Updated just now</div>
               </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
-                <div style="width: 32px; height: 32px; background: rgba(255,95,61,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🎁</div>
-                <span style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Branded Merchandise — 2,000 pcs</span>
-                <span style="font-size: 11px; font-weight: 600; color: #10b981; background: rgba(16,185,129,.15); padding: 4px 8px; border-radius: 4px;">Shipped</span>
+            <div class="hc-items" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="hc-item" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
+                <div class="hc-item-icon" style="width: 32px; height: 32px; background: rgba(255,95,61,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🎁</div>
+                <span class="hc-item-text" style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Branded Merchandise — 2,000 pcs</span>
+                <span class="hc-item-tag" style="font-size: 11px; font-weight: 600; color: #10b981; background: rgba(16,185,129,.15); padding: 4px 8px; border-radius: 4px;">Shipped</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
-                <div style="width: 32px; height: 32px; background: rgba(59,130,246,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🧢</div>
-                <span style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Custom Caps — 500 pcs</span>
-                <span style="font-size: 11px; font-weight: 600; color: #3b82f6; background: rgba(59,130,246,.15); padding: 4px 8px; border-radius: 4px;">In QC</span>
+              <div class="hc-item" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
+                <div class="hc-item-icon" style="width: 32px; height: 32px; background: rgba(59,130,246,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🧢</div>
+                <span class="hc-item-text" style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Custom Caps — 500 pcs</span>
+                <span class="hc-item-tag" style="font-size: 11px; font-weight: 600; color: #3b82f6; background: rgba(59,130,246,.15); padding: 4px 8px; border-radius: 4px;">In QC</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
-                <div style="width: 32px; height: 32px; background: rgba(0,201,167,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🖨️</div>
-                <span style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Promo Bags — 1,500 pcs</span>
-                <span style="font-size: 11px; font-weight: 600; color: var(--coral); background: rgba(255,95,61,.15); padding: 4px 8px; border-radius: 4px;">Sourcing</span>
+              <div class="hc-item" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(255,255,255,.05); border-radius: 10px;">
+                <div class="hc-item-icon" style="width: 32px; height: 32px; background: rgba(0,201,167,.12); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🖨️</div>
+                <span class="hc-item-text" style="flex: 1; font-size: 13px; color: rgba(255,255,255,.9);">Promo Bags — 1,500 pcs</span>
+                <span class="hc-item-tag" style="font-size: 11px; font-weight: 600; color: #f59e0b; background: rgba(245,158,11,.15); padding: 4px 8px; border-radius: 4px;">Sourcing</span>
               </div>
             </div>
           </div>
@@ -689,6 +689,93 @@
       document.getElementById('mobileMenu').classList.toggle('open');
       document.getElementById('hamburger').classList.toggle('active');
     }
+
+    // Active Orders - 每天随机更换数字和品类
+    (function() {
+      const productCategories = [
+        { icon: '🎁', name: 'Branded Merchandise' },
+        { icon: '🧢', name: 'Custom Caps' },
+        { icon: '🖨️', name: 'Promo Bags' },
+        { icon: '👕', name: 'Custom Apparel' },
+        { icon: '📱', name: 'Phone Accessories' },
+        { icon: '🏠', name: 'Home Decor' },
+        { icon: '🎒', name: 'Custom Backpacks' },
+        { icon: '☕', name: 'Drinkware' },
+        { icon: '🖊️', name: 'Office Supplies' },
+        { icon: '🧴', name: 'Personal Care' },
+        { icon: '🧸', name: 'Plush Toys' },
+        { icon: '🔌', name: 'Electronics' },
+        { icon: '👜', name: 'Leather Goods' },
+        { icon: '🎧', name: 'Audio Products' },
+        { icon: '📦', name: 'Packaging Boxes' }
+      ];
+
+      const statuses = [
+        { text: 'Shipped', color: '#10b981', bg: 'rgba(16,185,129,.15)' },
+        { text: 'In QC', color: '#3b82f6', bg: 'rgba(59,130,246,.15)' },
+        { text: 'Sourcing', color: '#f59e0b', bg: 'rgba(245,158,11,.15)' },
+        { text: 'Producing', color: '#8b5cf6', bg: 'rgba(139,92,246,.15)' }
+      ];
+
+      // 基于日期生成随机种子
+      function getDailySeed() {
+        const now = new Date();
+        return now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+      }
+
+      // 简单的伪随机数生成器
+      function seededRandom(seed) {
+        const x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+      }
+
+      // 打乱数组
+      function shuffleArray(array, seed) {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(seededRandom(seed + i) * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      // 生成随机数量 (100-5000)
+      function getRandomQty(seed, index) {
+        return Math.floor(seededRandom(seed + index) * 4900) + 100;
+      }
+
+      // 更新订单显示
+      function updateActiveOrders() {
+        const seed = getDailySeed();
+        const shuffledCategories = shuffleArray(productCategories, seed);
+        const orderItems = document.querySelectorAll('.active-orders-card .hc-item');
+
+        orderItems.forEach((item, index) => {
+          const category = shuffledCategories[index % shuffledCategories.length];
+          const qty = getRandomQty(seed, index);
+          const status = statuses[Math.floor(seededRandom(seed + 100 + index) * statuses.length)];
+
+          // 更新图标
+          const iconDiv = item.querySelector('.hc-item-icon');
+          if (iconDiv) iconDiv.textContent = category.icon;
+
+          // 更新文字
+          const textSpan = item.querySelector('.hc-item-text');
+          if (textSpan) textSpan.textContent = `${category.name} — ${qty.toLocaleString()} pcs`;
+
+          // 更新状态标签
+          const tagSpan = item.querySelector('.hc-item-tag');
+          if (tagSpan) {
+            tagSpan.textContent = status.text;
+            tagSpan.style.color = status.color;
+            tagSpan.style.background = status.bg;
+          }
+        });
+      }
+
+      // 页面加载时更新
+      updateActiveOrders();
+    })();
   </script>
   <!-- WhatsApp浮动按钮 -->
   <a href="https://api.whatsapp.com/send?phone=8615273256913&text=Hi%20TradeNest%2C%20I'm%20interested%20in%20your%20sourcing%20services" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
