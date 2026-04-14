@@ -262,14 +262,27 @@
       width: max-content;
     }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    /* Testimonials cards */
-    .testimonials-section { margin-top: 48px; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    /* Testimonials carousel */
+    .testimonials-carousel {
+      margin-top: 48px;
+      overflow: hidden;
+      width: 100%;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollTestimonials 40s linear infinite;
+    }
+    .testimonials-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollTestimonials {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .testimonial-card {
+      flex-shrink: 0;
+      width: 320px;
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 16px;
@@ -300,12 +313,6 @@
       font-size: 12px;
       color: rgba(255,255,255,.5);
       margin-top: 2px;
-    }
-    @media (max-width: 1024px) {
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .testimonials-grid { grid-template-columns: 1fr; }
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
@@ -510,40 +517,77 @@
               <span class="stat-label">Days to Sample</span>
             </div>
           </div>
-          <!-- Client testimonials cards -->
-          <div class="testimonials-section">
-            <div class="testimonials-grid">
-              <div class="testimonial-card reveal">
+          <!-- Client testimonials carousel -->
+          <div class="testimonials-carousel">
+            <div class="testimonials-track" id="testimonialsTrack">
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇺🇸</div>
                 <p class="testimonial-text">"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."</p>
                 <div class="testimonial-author">Sarah Mitchell</div>
                 <div class="testimonial-location">New York, USA</div>
               </div>
-              <div class="testimonial-card reveal" style="transition-delay:.1s">
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇬🇧</div>
                 <p class="testimonial-text">"Quality exceeded our expectations every time. We trust them with all our sourcing needs."</p>
                 <div class="testimonial-author">James Anderson</div>
                 <div class="testimonial-location">London, UK</div>
               </div>
-              <div class="testimonial-card reveal" style="transition-delay:.2s">
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇦🇺</div>
                 <p class="testimonial-text">"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."</p>
                 <div class="testimonial-author">Emma Thompson</div>
                 <div class="testimonial-location">Sydney, Australia</div>
               </div>
-              <div class="testimonial-card reveal" style="transition-delay:.3s">
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇩🇪</div>
                 <p class="testimonial-text">"Professional team, transparent process. We always know exactly what's happening."</p>
                 <div class="testimonial-author">Michael Weber</div>
                 <div class="testimonial-location">Berlin, Germany</div>
               </div>
-              <div class="testimonial-card reveal" style="transition-delay:.4s">
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇨🇦</div>
                 <p class="testimonial-text">"Best sourcing partner we've worked with. They truly understand our business needs."</p>
                 <div class="testimonial-author">David Chen</div>
                 <div class="testimonial-location">Toronto, Canada</div>
               </div>
-              <div class="testimonial-card reveal" style="transition-delay:.5s">
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇸🇬</div>
+                <p class="testimonial-text">"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."</p>
+                <div class="testimonial-author">Lisa Tan</div>
+                <div class="testimonial-location">Singapore</div>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇺🇸</div>
+                <p class="testimonial-text">"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."</p>
+                <div class="testimonial-author">Sarah Mitchell</div>
+                <div class="testimonial-location">New York, USA</div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇬🇧</div>
+                <p class="testimonial-text">"Quality exceeded our expectations every time. We trust them with all our sourcing needs."</p>
+                <div class="testimonial-author">James Anderson</div>
+                <div class="testimonial-location">London, UK</div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇦🇺</div>
+                <p class="testimonial-text">"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."</p>
+                <div class="testimonial-author">Emma Thompson</div>
+                <div class="testimonial-location">Sydney, Australia</div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇩🇪</div>
+                <p class="testimonial-text">"Professional team, transparent process. We always know exactly what's happening."</p>
+                <div class="testimonial-author">Michael Weber</div>
+                <div class="testimonial-location">Berlin, Germany</div>
+              </div>
+              <div class="testimonial-card">
+                <div class="testimonial-flag">🇨🇦</div>
+                <p class="testimonial-text">"Best sourcing partner we've worked with. They truly understand our business needs."</p>
+                <div class="testimonial-author">David Chen</div>
+                <div class="testimonial-location">Toronto, Canada</div>
+              </div>
+              <div class="testimonial-card">
                 <div class="testimonial-flag">🇸🇬</div>
                 <p class="testimonial-text">"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."</p>
                 <div class="testimonial-author">Lisa Tan</div>
