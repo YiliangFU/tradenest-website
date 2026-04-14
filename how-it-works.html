@@ -96,8 +96,13 @@
       color: #e74c3c;
     }
     .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 4px; font-size: 13px !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--white); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 999; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all .3s; }
+    /* 菜单打开时汉堡变X */
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .hamburger.active span { background: var(--white) !important; }
     .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--indigo); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--white); }
@@ -153,7 +158,6 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <span class="mobile-close" onclick="toggleMenu()">✕</span>
     <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
     <a href="services.html" onclick="toggleMenu()">Services</a>
     <a href="about.html" onclick="toggleMenu()">About Us</a>
@@ -248,7 +252,7 @@
       navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); document.getElementById('hamburger').classList.toggle('active'); }
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
