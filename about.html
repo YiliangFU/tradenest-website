@@ -44,6 +44,52 @@
     .logo-dark  { display: none !important; }
     #navbar.scrolled .logo-white { display: none !important; }
     #navbar.scrolled .logo-dark  { display: block !important; }
+    /* 新Logo样式 */
+    .logo-new {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      border-radius: 6px;
+    }
+    .logo-line {
+      width: 4px;
+      height: 36px;
+      background: #f1c40f;
+      border-radius: 2px;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .logo-main {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+    .logo-trade {
+      color: #ffffff;
+    }
+    .logo-nest {
+      color: #e74c3c;
+    }
+    .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #f1c40f;
+      margin-top: 2px;
+    }
+    /* 滚动后logo颜色变化 */
+    #navbar.scrolled .logo-trade {
+      color: #1a1a3e;
+    }
+    #navbar.scrolled .logo-nest {
+      color: #e74c3c;
+    }
     .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 4px; font-size: 13px !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 24px; height: 2px; background: var(--white); }
@@ -103,8 +149,13 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <img src="logo.svg" alt="TradeNest" class="logo-white" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
-          <img src="logo-dark.svg" alt="TradeNest" class="logo-dark" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          <div class="logo-new">
+            <div class="logo-line"></div>
+            <div class="logo-text">
+              <div class="logo-main"><span class="logo-trade">TRADE</span><span class="logo-nest">NEST</span></div>
+              <div class="logo-sub">SOURCING</div>
+            </div>
+          </div>
         </a>
         <ul class="nav-links">
           <li><a href="how-it-works.html">How It Works</a></li>
