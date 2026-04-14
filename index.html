@@ -262,15 +262,51 @@
       width: max-content;
     }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .ticker-item {
-      display: inline-flex; align-items: center; gap: 10px;
+    /* Testimonials cards */
+    .testimonials-section { margin-top: 48px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.12);
-      border-radius: 100px;
-      padding: 10px 20px; white-space: nowrap;
-      font-size: 14px; color: rgba(255,255,255,.9); font-weight: 500;
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform .3s, box-shadow .3s;
     }
-    .ticker-item span { font-size: 18px; flex-shrink: 0; }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.15);
+    }
+    .testimonial-flag {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .testimonial-text {
+      font-size: 14px;
+      color: rgba(255,255,255,.9);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--white);
+    }
+    .testimonial-location {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      margin-top: 2px;
+    }
+    @media (max-width: 1024px) {
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
     .hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(36px, 5.2vw, 64px);
@@ -474,38 +510,45 @@
               <span class="stat-label">Days to Sample</span>
             </div>
           </div>
-          <!-- Client testimonials ticker -->
-          <div class="markets-ticker">
-            <div class="ticker-track" id="tickerTrack">
-              <div class="ticker-item"><span>🇺🇸</span> "TradeNest saved us 40% on procurement costs" — Sarah, New York</div>
-              <div class="ticker-item"><span>🇬🇧</span> "Quality exceeded our expectations every time" — James, London</div>
-              <div class="ticker-item"><span>🇦🇺</span> "From sample to delivery in just 3 weeks" — Emma, Sydney</div>
-              <div class="ticker-item"><span>🇩🇪</span> "Professional team, transparent process" — Michael, Berlin</div>
-              <div class="ticker-item"><span>🇨🇦</span> "Best sourcing partner we've worked with" — David, Toronto</div>
-              <div class="ticker-item"><span>🇦🇪</span> "Reliable quality control and fast shipping" — Ahmed, Dubai</div>
-              <div class="ticker-item"><span>🇸🇬</span> "Helped us scale from 100 to 10,000 units" — Lisa, Singapore</div>
-              <div class="ticker-item"><span>🇫🇷</span> "Excellent communication throughout" — Pierre, Paris</div>
-              <div class="ticker-item"><span>🇳🇱</span> "Found suppliers we couldn't reach ourselves" — Anna, Amsterdam</div>
-              <div class="ticker-item"><span>🇯🇵</span> "Precision and attention to detail is unmatched" — Yuki, Tokyo</div>
-              <div class="ticker-item"><span>🇳🇿</span> "Made importing from China stress-free" — Tom, Auckland</div>
-              <div class="ticker-item"><span>🇸🇦</span> "Consistent quality across 50+ orders" — Omar, Riyadh</div>
-              <!-- duplicate for seamless loop -->
-              <div class="ticker-item"><span>🇺🇸</span> "TradeNest saved us 40% on procurement costs" — Sarah, New York</div>
-              <div class="ticker-item"><span>🇬🇧</span> "Quality exceeded our expectations every time" — James, London</div>
-              <div class="ticker-item"><span>🇦🇺</span> "From sample to delivery in just 3 weeks" — Emma, Sydney</div>
-              <div class="ticker-item"><span>🇩🇪</span> "Professional team, transparent process" — Michael, Berlin</div>
-              <div class="ticker-item"><span>🇨🇦</span> "Best sourcing partner we've worked with" — David, Toronto</div>
-              <div class="ticker-item"><span>🇦🇪</span> "Reliable quality control and fast shipping" — Ahmed, Dubai</div>
-              <div class="ticker-item"><span>🇸🇬</span> "Helped us scale from 100 to 10,000 units" — Lisa, Singapore</div>
-              <div class="ticker-item"><span>🇫🇷</span> "Excellent communication throughout" — Pierre, Paris</div>
-              <div class="ticker-item"><span>🇳🇱</span> "Found suppliers we couldn't reach ourselves" — Anna, Amsterdam</div>
-              <div class="ticker-item"><span>🇯🇵</span> "Precision and attention to detail is unmatched" — Yuki, Tokyo</div>
-              <div class="ticker-item"><span>🇳🇿</span> "Made importing from China stress-free" — Tom, Auckland</div>
-              <div class="ticker-item"><span>🇸🇦</span> "Consistent quality across 50+ orders" — Omar, Riyadh</div>
-              <div class="ticker-item"><span>🇸🇦</span> Saudi Arabia</div>
-              <div class="ticker-item"><span>🇰🇷</span> South Korea</div>
-              <div class="ticker-item"><span>🇮🇹</span> Italy</div>
-              <div class="ticker-item"><span>🇪🇸</span> Spain</div>
+          <!-- Client testimonials cards -->
+          <div class="testimonials-section">
+            <div class="testimonials-grid">
+              <div class="testimonial-card reveal">
+                <div class="testimonial-flag">🇺🇸</div>
+                <p class="testimonial-text">"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."</p>
+                <div class="testimonial-author">Sarah Mitchell</div>
+                <div class="testimonial-location">New York, USA</div>
+              </div>
+              <div class="testimonial-card reveal" style="transition-delay:.1s">
+                <div class="testimonial-flag">🇬🇧</div>
+                <p class="testimonial-text">"Quality exceeded our expectations every time. We trust them with all our sourcing needs."</p>
+                <div class="testimonial-author">James Anderson</div>
+                <div class="testimonial-location">London, UK</div>
+              </div>
+              <div class="testimonial-card reveal" style="transition-delay:.2s">
+                <div class="testimonial-flag">🇦🇺</div>
+                <p class="testimonial-text">"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."</p>
+                <div class="testimonial-author">Emma Thompson</div>
+                <div class="testimonial-location">Sydney, Australia</div>
+              </div>
+              <div class="testimonial-card reveal" style="transition-delay:.3s">
+                <div class="testimonial-flag">🇩🇪</div>
+                <p class="testimonial-text">"Professional team, transparent process. We always know exactly what's happening."</p>
+                <div class="testimonial-author">Michael Weber</div>
+                <div class="testimonial-location">Berlin, Germany</div>
+              </div>
+              <div class="testimonial-card reveal" style="transition-delay:.4s">
+                <div class="testimonial-flag">🇨🇦</div>
+                <p class="testimonial-text">"Best sourcing partner we've worked with. They truly understand our business needs."</p>
+                <div class="testimonial-author">David Chen</div>
+                <div class="testimonial-location">Toronto, Canada</div>
+              </div>
+              <div class="testimonial-card reveal" style="transition-delay:.5s">
+                <div class="testimonial-flag">🇸🇬</div>
+                <p class="testimonial-text">"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."</p>
+                <div class="testimonial-author">Lisa Tan</div>
+                <div class="testimonial-location">Singapore</div>
+              </div>
             </div>
           </div>
         </div>
