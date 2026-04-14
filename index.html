@@ -195,8 +195,13 @@
     }
     .mobile-menu a:hover { color: var(--coral); }
     .mobile-close {
-      position: absolute; top: 24px; right: 24px;
-      font-size: 32px; color: var(--white); cursor: pointer;
+      position: absolute; top: 20px; right: 20px;
+      font-size: 28px; color: var(--white); cursor: pointer;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      z-index: 999;
     }
 
     /* HERO */
@@ -421,7 +426,6 @@
     <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
     <a href="services.html" onclick="toggleMenu()">Services</a>
     <a href="about.html" onclick="toggleMenu()">About Us</a>
-    <a href="contact.html" onclick="toggleMenu()">Contact</a>
     <a href="contact.html" onclick="toggleMenu()" class="btn btn-primary">Get a Quote →</a>
   </div>
 
