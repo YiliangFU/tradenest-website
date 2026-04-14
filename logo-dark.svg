@@ -2,8 +2,8 @@
   <!-- Top line - full width -->
   <rect x="0" y="0" width="360" height="8" fill="#2B1A6B"/>
 
-  <!-- TradeNest text with letter spacing -->
-  <text x="180" y="50" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="normal" fill="white" text-anchor="middle" letter-spacing="6">TradeNest</text>
+  <!-- TradeNest text with letter spacing - dark color -->
+  <text x="180" y="50" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="normal" fill="#2B1A6B" text-anchor="middle" letter-spacing="6">TradeNest</text>
 
   <!-- Red block background - full width -->
   <rect x="0" y="62" width="360" height="28" fill="#BE3528"/>

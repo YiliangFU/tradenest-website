@@ -103,6 +103,10 @@
       letter-spacing: .02em;
     }
     #navbar.scrolled .nav-logo { color: var(--indigo); }
+    .logo-white { display: block; }
+    .logo-dark  { display: none !important; }
+    #navbar.scrolled .logo-white { display: none !important; }
+    #navbar.scrolled .logo-dark  { display: block !important; }
     .nav-links {
       display: flex; gap: 36px; align-items: center;
     }
@@ -343,7 +347,8 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          <img src="logo.svg" alt="TradeNest" class="logo-white" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          <img src="logo-dark.svg" alt="TradeNest" class="logo-dark" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
         </a>
         <ul class="nav-links">
           <li><a href="how-it-works.html">How It Works</a></li>
@@ -503,7 +508,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
+          <img src="logo-dark.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
           <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
         </div>
         <div class="footer-col">

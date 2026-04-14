@@ -44,6 +44,10 @@
     .nav-links a { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85); transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--coral); }
     #navbar.scrolled .nav-links a { color: var(--text); }
+    .logo-white { display: block; }
+    .logo-dark  { display: none !important; }
+    #navbar.scrolled .logo-white { display: none !important; }
+    #navbar.scrolled .logo-dark  { display: block !important; }
     .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 4px; font-size: 13px !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 24px; height: 2px; background: var(--white); }
@@ -80,7 +84,8 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          <img src="logo.svg" alt="TradeNest" class="logo-white" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          <img src="logo-dark.svg" alt="TradeNest" class="logo-dark" style="height:40px;width:auto;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
         </a>
         <ul class="nav-links">
           <li><a href="how-it-works.html" class="active">How It Works</a></li>
@@ -145,7 +150,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="logo.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
+          <img src="logo-dark.svg" alt="TradeNest" style="height:40px;width:auto;display:block;background:white;padding:0;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.15);margin-bottom:16px;">
           <p>Your trusted global sourcing partner — connecting businesses worldwide with the best of Chinese manufacturing.</p>
         </div>
         <div class="footer-col">
@@ -179,6 +184,12 @@
   </footer>
 
   <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
     function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
