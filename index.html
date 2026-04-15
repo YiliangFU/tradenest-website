@@ -228,9 +228,12 @@
     .blob-2 { width: 400px; height: 400px; background: #6C6BC0; bottom: -100px; left: -100px; }
     .blob-3 { width: 300px; height: 300px; background: #A09FDB; top: 40%; left: 30%; }
     .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr;
       gap: 64px; align-items: center;
       position: relative; z-index: 1;
+    }
+    .hero-content {
+      max-width: 800px;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -338,9 +341,6 @@
       font-size: 32px; font-weight: 800; color: var(--white);
     }
     .stat-label { font-size: 13px; color: rgba(255,255,255,.5); }
-    .hero-visual {
-      position: relative; display: flex; justify-content: center;
-    }
     .hero-card-main {
       background: rgba(255,255,255,.07);
       backdrop-filter: blur(16px);
@@ -427,7 +427,6 @@
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-      .hero-visual { display: none; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 640px) {
