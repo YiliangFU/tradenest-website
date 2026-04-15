@@ -529,83 +529,9 @@
             </div>
           </div>
 
-          <!-- Client testimonials carousel -->
+          <!-- Client testimonials carousel - cards injected by JS -->
           <div class="testimonials-carousel">
-            <div class="testimonials-track" id="testimonialsTrack">
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/us.png" alt="US"></div>
-                <p class="testimonial-text">"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."</p>
-                <div class="testimonial-author">Sarah Mitchell</div>
-                <div class="testimonial-location">New York, USA</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/gb.png" alt="UK"></div>
-                <p class="testimonial-text">"Quality exceeded our expectations every time. We trust them with all our sourcing needs."</p>
-                <div class="testimonial-author">James Anderson</div>
-                <div class="testimonial-location">London, UK</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/au.png" alt="AU"></div>
-                <p class="testimonial-text">"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."</p>
-                <div class="testimonial-author">Emma Thompson</div>
-                <div class="testimonial-location">Sydney, Australia</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/de.png" alt="DE"></div>
-                <p class="testimonial-text">"Professional team, transparent process. We always know exactly what's happening."</p>
-                <div class="testimonial-author">Michael Weber</div>
-                <div class="testimonial-location">Berlin, Germany</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/ca.png" alt="CA"></div>
-                <p class="testimonial-text">"Best sourcing partner we've worked with. They truly understand our business needs."</p>
-                <div class="testimonial-author">David Chen</div>
-                <div class="testimonial-location">Toronto, Canada</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/sg.png" alt="SG"></div>
-                <p class="testimonial-text">"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."</p>
-                <div class="testimonial-author">Lisa Tan</div>
-                <div class="testimonial-location">Singapore</div>
-              </div>
-              <!-- Duplicate for seamless loop -->
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/us.png" alt="US"></div>
-                <p class="testimonial-text">"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."</p>
-                <div class="testimonial-author">Sarah Mitchell</div>
-                <div class="testimonial-location">New York, USA</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/gb.png" alt="UK"></div>
-                <p class="testimonial-text">"Quality exceeded our expectations every time. We trust them with all our sourcing needs."</p>
-                <div class="testimonial-author">James Anderson</div>
-                <div class="testimonial-location">London, UK</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/au.png" alt="AU"></div>
-                <p class="testimonial-text">"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."</p>
-                <div class="testimonial-author">Emma Thompson</div>
-                <div class="testimonial-location">Sydney, Australia</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/de.png" alt="DE"></div>
-                <p class="testimonial-text">"Professional team, transparent process. We always know exactly what's happening."</p>
-                <div class="testimonial-author">Michael Weber</div>
-                <div class="testimonial-location">Berlin, Germany</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/ca.png" alt="CA"></div>
-                <p class="testimonial-text">"Best sourcing partner we've worked with. They truly understand our business needs."</p>
-                <div class="testimonial-author">David Chen</div>
-                <div class="testimonial-location">Toronto, Canada</div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-flag"><img src="https://flagcdn.com/w40/sg.png" alt="SG"></div>
-                <p class="testimonial-text">"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."</p>
-                <div class="testimonial-author">Lisa Tan</div>
-                <div class="testimonial-location">Singapore</div>
-              </div>
-            </div>
+            <div class="testimonials-track" id="testimonialsTrack"></div>
           </div>
         </div>
       </div>
@@ -672,6 +598,69 @@
       document.getElementById('mobileMenu').classList.toggle('open');
       document.getElementById('hamburger').classList.toggle('active');
     }
+
+    // Testimonials - infinite random shuffle carousel
+    (function() {
+      const allTestimonials = [
+        { country: 'us', name: 'Sarah Mitchell',   location: 'New York, USA',        text: '"TradeNest saved us 40% on procurement costs. Their negotiation skills are unmatched."' },
+        { country: 'gb', name: 'James Anderson',   location: 'London, UK',            text: '"Quality exceeded our expectations every time. We trust them with all our sourcing needs."' },
+        { country: 'au', name: 'Emma Thompson',    location: 'Sydney, Australia',     text: '"From sample to delivery in just 3 weeks. The speed and efficiency is incredible."' },
+        { country: 'de', name: 'Michael Weber',    location: 'Berlin, Germany',       text: '"Professional team, transparent process. We always know exactly what\'s happening."' },
+        { country: 'ca', name: 'David Chen',       location: 'Toronto, Canada',       text: '"Best sourcing partner we\'ve worked with. They truly understand our business needs."' },
+        { country: 'sg', name: 'Lisa Tan',         location: 'Singapore',             text: '"Helped us scale from 100 to 10,000 units seamlessly. A true growth partner."' },
+        { country: 'fr', name: 'Sophie Laurent',   location: 'Paris, France',         text: '"Impeccable service and communication. Every order was handled with great care."' },
+        { country: 'nl', name: 'Thomas de Vries',  location: 'Amsterdam, Netherlands',text: '"Fast turnaround and excellent quality control. We have zero complaints."' },
+        { country: 'ae', name: 'Omar Al-Rashid',   location: 'Dubai, UAE',            text: '"They handled complex customs requirements effortlessly. Highly recommended."' },
+        { country: 'jp', name: 'Kenji Nakamura',   location: 'Tokyo, Japan',          text: '"Consistent quality and reliable delivery schedules. A dependable partner."' },
+        { country: 'kr', name: 'Ji-Yeon Park',     location: 'Seoul, South Korea',    text: '"Outstanding customer support and proactive updates throughout production."' },
+        { country: 'br', name: 'Carlos Mendes',    location: 'São Paulo, Brazil',     text: '"TradeNest navigated import regulations smoothly. Saved us time and money."' },
+        { country: 'mx', name: 'Maria Hernandez',  location: 'Mexico City, Mexico',   text: '"Great product quality at competitive prices. We will definitely reorder."' },
+        { country: 'in', name: 'Priya Sharma',     location: 'Mumbai, India',         text: '"Exceptional attention to detail and very responsive to our specifications."' },
+        { country: 'za', name: 'Sipho Dlamini',    location: 'Johannesburg, S. Africa',text: '"Reliable, professional and always deliver on their promises. 5 stars."' },
+        { country: 'se', name: 'Erik Lindqvist',   location: 'Stockholm, Sweden',     text: '"TradeNest made our China sourcing stress-free. Absolutely brilliant team."' },
+        { country: 'nz', name: 'Olivia Brown',     location: 'Auckland, New Zealand', text: '"From RFQ to delivery, the whole process was smooth and transparent."' },
+        { country: 'ch', name: 'Lukas Müller',     location: 'Zurich, Switzerland',   text: '"High standards met every time. Their QC process is thorough and reliable."' },
+      ];
+
+      function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      function buildCard(t) {
+        return `<div class="testimonial-card">
+          <div class="testimonial-flag"><img src="https://flagcdn.com/w40/${t.country}.png" alt="${t.country.toUpperCase()}"></div>
+          <p class="testimonial-text">${t.text}</p>
+          <div class="testimonial-author">${t.name}</div>
+          <div class="testimonial-location">${t.location}</div>
+        </div>`;
+      }
+
+      function fillTrack(track) {
+        const picked = shuffle(allTestimonials).slice(0, 8);
+        // Double for seamless loop
+        track.innerHTML = [...picked, ...picked].map(buildCard).join('');
+      }
+
+      const track = document.getElementById('testimonialsTrack');
+      if (track) {
+        fillTrack(track);
+
+        // Re-shuffle when one full cycle completes
+        track.addEventListener('animationiteration', () => {
+          // Briefly disable animation, refill, re-enable
+          track.style.animationPlayState = 'paused';
+          fillTrack(track);
+          // Force reflow
+          void track.offsetWidth;
+          track.style.animationPlayState = 'running';
+        });
+      }
+    })();
   </script>
   <!-- WhatsApp浮动按钮 -->
   <a href="https://api.whatsapp.com/send?phone=8615273256913&text=Hi%20TradeNest%2C%20I'm%20interested%20in%20your%20sourcing%20services" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
