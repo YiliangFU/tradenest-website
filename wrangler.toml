@@ -1,6 +1,9 @@
 name = "tradenest-website"
-type = "static"
 account_id = "f94d1608491dd85a31397b85ed67da2f"
+compatibility_date = "2026-04-20"
+
+[assets]
+directory = "."
 
 [env.production]
 vars = { ENVIRONMENT = "production" }
